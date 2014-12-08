@@ -78,8 +78,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = lambda1$(EXEEXT)
-subdir = src/lang
+bin_PROGRAMS = pair1$(EXEEXT) tuple1$(EXEEXT)
+subdir = src/util
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -95,13 +95,16 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_lambda1_OBJECTS = lambda1.$(OBJEXT)
-lambda1_OBJECTS = $(am_lambda1_OBJECTS)
-lambda1_LDADD = $(LDADD)
+am_pair1_OBJECTS = pair1.$(OBJEXT)
+pair1_OBJECTS = $(am_pair1_OBJECTS)
+pair1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_tuple1_OBJECTS = tuple1.$(OBJEXT)
+tuple1_OBJECTS = $(am_tuple1_OBJECTS)
+tuple1_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -136,8 +139,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(lambda1_SOURCES)
-DIST_SOURCES = $(lambda1_SOURCES)
+SOURCES = $(pair1_SOURCES) $(tuple1_SOURCES)
+DIST_SOURCES = $(pair1_SOURCES) $(tuple1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -284,7 +287,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra
-lambda1_SOURCES = lambda1.cc
+pair1_SOURCES = pair1.cc
+tuple1_SOURCES = tuple1.cc
 all: all-am
 
 .SUFFIXES:
@@ -298,9 +302,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/lang/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/util/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign src/lang/Makefile
+	  $(AUTOMAKE) --foreign src/util/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -369,9 +373,13 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-lambda1$(EXEEXT): $(lambda1_OBJECTS) $(lambda1_DEPENDENCIES) $(EXTRA_lambda1_DEPENDENCIES) 
-	@rm -f lambda1$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(lambda1_OBJECTS) $(lambda1_LDADD) $(LIBS)
+pair1$(EXEEXT): $(pair1_OBJECTS) $(pair1_DEPENDENCIES) $(EXTRA_pair1_DEPENDENCIES) 
+	@rm -f pair1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(pair1_OBJECTS) $(pair1_LDADD) $(LIBS)
+
+tuple1$(EXEEXT): $(tuple1_OBJECTS) $(tuple1_DEPENDENCIES) $(EXTRA_tuple1_DEPENDENCIES) 
+	@rm -f tuple1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(tuple1_OBJECTS) $(tuple1_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -379,7 +387,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lambda1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pair1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tuple1.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

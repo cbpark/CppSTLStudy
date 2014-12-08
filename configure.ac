@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.69])
 AC_INIT([CppSTLStudy], [0.0.0.0], [cbpark@gmail.com])
-AC_CONFIG_SRCDIR([src/lang/lambda1.cc])
+AC_CONFIG_SRCDIR([src/Makefile.am])
 AC_CONFIG_AUX_DIR([config])
 AC_CONFIG_HEADERS([config/config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -18,22 +18,21 @@ AC_PROG_INSTALL
 AM_PROG_AR
 LT_INIT
 
-# Checks for libraries.
-
-# Checks for header files.
-AC_HEADER_STDC
-AC_CHECK_HEADERS([algorithm functional iterator numeric string vector])
-
-# Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_SIZE_T
-
-# Checks for library functions.
-
 # Adds flags for clang.
 if test "$CXX" = "clang++"; then
    CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
    LDFLAGS="${LDFLAGS} -stdlib=libc++"
 fi
 
-AC_CONFIG_FILES([Makefile src/lang/Makefile])
+# Checks for header files.
+AC_CHECK_HEADERS([algorithm complex functional iterator numeric string tuple vector])
+
+# Checks for libraries.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile
+                 src/Makefile
+                 src/lang/Makefile
+                 src/util/Makefile])
 AC_OUTPUT

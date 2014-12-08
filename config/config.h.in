@@ -3,6 +3,9 @@
 /* Define to 1 if you have the <algorithm> header file. */
 #undef HAVE_ALGORITHM
 
+/* Define to 1 if you have the <complex> header file. */
+#undef HAVE_COMPLEX
+
 /* define if the compiler supports basic C++11 syntax */
 #undef HAVE_CXX11
 
@@ -45,13 +48,17 @@
 /* Define to 1 if you have the <sys/types.h> header file. */
 #undef HAVE_SYS_TYPES_H
 
+/* Define to 1 if you have the <tuple> header file. */
+#undef HAVE_TUPLE
+
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
 /* Define to 1 if you have the <vector> header file. */
 #undef HAVE_VECTOR
 
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
 #undef LT_OBJDIR
 
 /* Name of package */
@@ -80,6 +87,3 @@
 
 /* Version number of package */
 #undef VERSION
-
-/* Define to `unsigned int' if <sys/types.h> does not define. */
-#undef size_t
