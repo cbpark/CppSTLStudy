@@ -38,7 +38,7 @@ int main() {
     // comparison and assignment
     // - including type conversion from tuple<int, int, const char*>
     //   to tuple<int, double, std::string>
-    if (t1 < t2) { // compares value for value
-        t1 = t2;   // OK, assigns value for value
+    if (t1 < t2) {  // compares value for value
+        t1 = t2;    // OK, assigns value for value
     }
 }
