@@ -19,5 +19,6 @@ Makefile
 
 # executables
 lambda1
-pair*
-tuple*
+pair1
+tuple1
+tuple2
