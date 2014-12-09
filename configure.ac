@@ -25,7 +25,7 @@ if test "$CXX" = "clang++"; then
 fi
 
 # Checks for header files.
-AC_CHECK_HEADERS([algorithm complex functional iterator numeric string tuple vector])
+AC_CHECK_HEADERS([algorithm complex functional iterator memory numeric string tuple vector])
 
 # Checks for libraries.
 

@@ -15482,7 +15482,7 @@ fi
 
 # Checks for header files.
 
-for ac_header in algorithm complex functional iterator numeric string tuple vector
+for ac_header in algorithm complex functional iterator memory numeric string tuple vector
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_cxx_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"

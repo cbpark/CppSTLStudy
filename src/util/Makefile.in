@@ -79,7 +79,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = pair1$(EXEEXT) tuple1$(EXEEXT) tuple2$(EXEEXT)
+bin_PROGRAMS = pair1$(EXEEXT) tuple1$(EXEEXT) tuple2$(EXEEXT) \
+	sharedptr1$(EXEEXT) sharedptr2$(EXEEXT) sharedptr3$(EXEEXT) \
+	weakptr1$(EXEEXT) weakptr2$(EXEEXT) uniqueptr1$(EXEEXT)
 subdir = src/util
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp $(pkginclude_HEADERS)
@@ -103,12 +105,30 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_sharedptr1_OBJECTS = sharedptr1.$(OBJEXT)
+sharedptr1_OBJECTS = $(am_sharedptr1_OBJECTS)
+sharedptr1_LDADD = $(LDADD)
+am_sharedptr2_OBJECTS = sharedptr2.$(OBJEXT)
+sharedptr2_OBJECTS = $(am_sharedptr2_OBJECTS)
+sharedptr2_LDADD = $(LDADD)
+am_sharedptr3_OBJECTS = sharedptr3.$(OBJEXT)
+sharedptr3_OBJECTS = $(am_sharedptr3_OBJECTS)
+sharedptr3_LDADD = $(LDADD)
 am_tuple1_OBJECTS = tuple1.$(OBJEXT)
 tuple1_OBJECTS = $(am_tuple1_OBJECTS)
 tuple1_LDADD = $(LDADD)
 am_tuple2_OBJECTS = tuple2.$(OBJEXT)
 tuple2_OBJECTS = $(am_tuple2_OBJECTS)
 tuple2_LDADD = $(LDADD)
+am_uniqueptr1_OBJECTS = uniqueptr1.$(OBJEXT)
+uniqueptr1_OBJECTS = $(am_uniqueptr1_OBJECTS)
+uniqueptr1_LDADD = $(LDADD)
+am_weakptr1_OBJECTS = weakptr1.$(OBJEXT)
+weakptr1_OBJECTS = $(am_weakptr1_OBJECTS)
+weakptr1_LDADD = $(LDADD)
+am_weakptr2_OBJECTS = weakptr2.$(OBJEXT)
+weakptr2_OBJECTS = $(am_weakptr2_OBJECTS)
+weakptr2_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -143,8 +163,13 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(pair1_SOURCES) $(tuple1_SOURCES) $(tuple2_SOURCES)
-DIST_SOURCES = $(pair1_SOURCES) $(tuple1_SOURCES) $(tuple2_SOURCES)
+SOURCES = $(pair1_SOURCES) $(sharedptr1_SOURCES) $(sharedptr2_SOURCES) \
+	$(sharedptr3_SOURCES) $(tuple1_SOURCES) $(tuple2_SOURCES) \
+	$(uniqueptr1_SOURCES) $(weakptr1_SOURCES) $(weakptr2_SOURCES)
+DIST_SOURCES = $(pair1_SOURCES) $(sharedptr1_SOURCES) \
+	$(sharedptr2_SOURCES) $(sharedptr3_SOURCES) $(tuple1_SOURCES) \
+	$(tuple2_SOURCES) $(uniqueptr1_SOURCES) $(weakptr1_SOURCES) \
+	$(weakptr2_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -322,6 +347,12 @@ AM_CXXFLAGS = -Wall -Wextra
 pair1_SOURCES = pair1.cc
 tuple1_SOURCES = tuple1.cc
 tuple2_SOURCES = tuple2.cc
+sharedptr1_SOURCES = sharedptr1.cc
+sharedptr2_SOURCES = sharedptr2.cc
+sharedptr3_SOURCES = sharedptr3.cc
+weakptr1_SOURCES = weakptr1.cc
+weakptr2_SOURCES = weakptr2.cc
+uniqueptr1_SOURCES = uniqueptr1.cc
 pkginclude_HEADERS = \
 	printtuple.h
 
@@ -413,6 +444,18 @@ pair1$(EXEEXT): $(pair1_OBJECTS) $(pair1_DEPENDENCIES) $(EXTRA_pair1_DEPENDENCIE
 	@rm -f pair1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(pair1_OBJECTS) $(pair1_LDADD) $(LIBS)
 
+sharedptr1$(EXEEXT): $(sharedptr1_OBJECTS) $(sharedptr1_DEPENDENCIES) $(EXTRA_sharedptr1_DEPENDENCIES) 
+	@rm -f sharedptr1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sharedptr1_OBJECTS) $(sharedptr1_LDADD) $(LIBS)
+
+sharedptr2$(EXEEXT): $(sharedptr2_OBJECTS) $(sharedptr2_DEPENDENCIES) $(EXTRA_sharedptr2_DEPENDENCIES) 
+	@rm -f sharedptr2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sharedptr2_OBJECTS) $(sharedptr2_LDADD) $(LIBS)
+
+sharedptr3$(EXEEXT): $(sharedptr3_OBJECTS) $(sharedptr3_DEPENDENCIES) $(EXTRA_sharedptr3_DEPENDENCIES) 
+	@rm -f sharedptr3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sharedptr3_OBJECTS) $(sharedptr3_LDADD) $(LIBS)
+
 tuple1$(EXEEXT): $(tuple1_OBJECTS) $(tuple1_DEPENDENCIES) $(EXTRA_tuple1_DEPENDENCIES) 
 	@rm -f tuple1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(tuple1_OBJECTS) $(tuple1_LDADD) $(LIBS)
@@ -421,6 +464,18 @@ tuple2$(EXEEXT): $(tuple2_OBJECTS) $(tuple2_DEPENDENCIES) $(EXTRA_tuple2_DEPENDE
 	@rm -f tuple2$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(tuple2_OBJECTS) $(tuple2_LDADD) $(LIBS)
 
+uniqueptr1$(EXEEXT): $(uniqueptr1_OBJECTS) $(uniqueptr1_DEPENDENCIES) $(EXTRA_uniqueptr1_DEPENDENCIES) 
+	@rm -f uniqueptr1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(uniqueptr1_OBJECTS) $(uniqueptr1_LDADD) $(LIBS)
+
+weakptr1$(EXEEXT): $(weakptr1_OBJECTS) $(weakptr1_DEPENDENCIES) $(EXTRA_weakptr1_DEPENDENCIES) 
+	@rm -f weakptr1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(weakptr1_OBJECTS) $(weakptr1_LDADD) $(LIBS)
+
+weakptr2$(EXEEXT): $(weakptr2_OBJECTS) $(weakptr2_DEPENDENCIES) $(EXTRA_weakptr2_DEPENDENCIES) 
+	@rm -f weakptr2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(weakptr2_OBJECTS) $(weakptr2_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -428,8 +483,14 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pair1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tuple1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tuple2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uniqueptr1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/weakptr1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/weakptr2.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
