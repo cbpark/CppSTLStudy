@@ -17,7 +17,8 @@ config/stamp-h1
 libtool
 Makefile
 
-# executables
+# executables #
+###############
 lambda1
 pair1
 tuple1
@@ -46,3 +47,10 @@ multimap1
 unorderedmultiset1
 unorderedmultimap1
 associativearray1
+list1old
+set1
+unorderedmultiset2
+algo1
+algo1old
+find1
+copy1
