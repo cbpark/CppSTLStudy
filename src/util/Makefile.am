@@ -9,7 +9,14 @@ bin_PROGRAMS = 	\
 	sharedptr3	\
 	weakptr1	\
 	weakptr2	\
-	uniqueptr1
+	uniqueptr1  \
+	limits1		\
+	minmax1		\
+	ratio1 		\
+	clock1		\
+	chrono1		\
+	chrono2		\
+	timepoint1
 
 pair1_SOURCES = pair1.cc
 
@@ -29,5 +36,21 @@ weakptr2_SOURCES = weakptr2.cc
 
 uniqueptr1_SOURCES = uniqueptr1.cc
 
-pkginclude_HEADERS = \
-	printtuple.h
+limits1_SOURCES = limits1.cc
+
+minmax1_SOURCES = minmax1.cc
+
+ratio1_SOURCES = ratio1.cc
+
+clock1_SOURCES = clock1.cc
+
+chrono1_SOURCES = chrono1.cc
+
+chrono2_SOURCES = chrono2.cc
+
+timepoint1_SOURCES = timepoint1.cc
+
+pkginclude_HEADERS = 	\
+	printtuple.h		\
+	clock.h				\
+	timepoint.h

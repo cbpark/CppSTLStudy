@@ -81,7 +81,10 @@ build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = pair1$(EXEEXT) tuple1$(EXEEXT) tuple2$(EXEEXT) \
 	sharedptr1$(EXEEXT) sharedptr2$(EXEEXT) sharedptr3$(EXEEXT) \
-	weakptr1$(EXEEXT) weakptr2$(EXEEXT) uniqueptr1$(EXEEXT)
+	weakptr1$(EXEEXT) weakptr2$(EXEEXT) uniqueptr1$(EXEEXT) \
+	limits1$(EXEEXT) minmax1$(EXEEXT) ratio1$(EXEEXT) \
+	clock1$(EXEEXT) chrono1$(EXEEXT) chrono2$(EXEEXT) \
+	timepoint1$(EXEEXT)
 subdir = src/util
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp $(pkginclude_HEADERS)
@@ -98,13 +101,31 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgincludedir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_pair1_OBJECTS = pair1.$(OBJEXT)
-pair1_OBJECTS = $(am_pair1_OBJECTS)
-pair1_LDADD = $(LDADD)
+am_chrono1_OBJECTS = chrono1.$(OBJEXT)
+chrono1_OBJECTS = $(am_chrono1_OBJECTS)
+chrono1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_chrono2_OBJECTS = chrono2.$(OBJEXT)
+chrono2_OBJECTS = $(am_chrono2_OBJECTS)
+chrono2_LDADD = $(LDADD)
+am_clock1_OBJECTS = clock1.$(OBJEXT)
+clock1_OBJECTS = $(am_clock1_OBJECTS)
+clock1_LDADD = $(LDADD)
+am_limits1_OBJECTS = limits1.$(OBJEXT)
+limits1_OBJECTS = $(am_limits1_OBJECTS)
+limits1_LDADD = $(LDADD)
+am_minmax1_OBJECTS = minmax1.$(OBJEXT)
+minmax1_OBJECTS = $(am_minmax1_OBJECTS)
+minmax1_LDADD = $(LDADD)
+am_pair1_OBJECTS = pair1.$(OBJEXT)
+pair1_OBJECTS = $(am_pair1_OBJECTS)
+pair1_LDADD = $(LDADD)
+am_ratio1_OBJECTS = ratio1.$(OBJEXT)
+ratio1_OBJECTS = $(am_ratio1_OBJECTS)
+ratio1_LDADD = $(LDADD)
 am_sharedptr1_OBJECTS = sharedptr1.$(OBJEXT)
 sharedptr1_OBJECTS = $(am_sharedptr1_OBJECTS)
 sharedptr1_LDADD = $(LDADD)
@@ -114,6 +135,9 @@ sharedptr2_LDADD = $(LDADD)
 am_sharedptr3_OBJECTS = sharedptr3.$(OBJEXT)
 sharedptr3_OBJECTS = $(am_sharedptr3_OBJECTS)
 sharedptr3_LDADD = $(LDADD)
+am_timepoint1_OBJECTS = timepoint1.$(OBJEXT)
+timepoint1_OBJECTS = $(am_timepoint1_OBJECTS)
+timepoint1_LDADD = $(LDADD)
 am_tuple1_OBJECTS = tuple1.$(OBJEXT)
 tuple1_OBJECTS = $(am_tuple1_OBJECTS)
 tuple1_LDADD = $(LDADD)
@@ -163,11 +187,16 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(pair1_SOURCES) $(sharedptr1_SOURCES) $(sharedptr2_SOURCES) \
-	$(sharedptr3_SOURCES) $(tuple1_SOURCES) $(tuple2_SOURCES) \
-	$(uniqueptr1_SOURCES) $(weakptr1_SOURCES) $(weakptr2_SOURCES)
-DIST_SOURCES = $(pair1_SOURCES) $(sharedptr1_SOURCES) \
-	$(sharedptr2_SOURCES) $(sharedptr3_SOURCES) $(tuple1_SOURCES) \
+SOURCES = $(chrono1_SOURCES) $(chrono2_SOURCES) $(clock1_SOURCES) \
+	$(limits1_SOURCES) $(minmax1_SOURCES) $(pair1_SOURCES) \
+	$(ratio1_SOURCES) $(sharedptr1_SOURCES) $(sharedptr2_SOURCES) \
+	$(sharedptr3_SOURCES) $(timepoint1_SOURCES) $(tuple1_SOURCES) \
+	$(tuple2_SOURCES) $(uniqueptr1_SOURCES) $(weakptr1_SOURCES) \
+	$(weakptr2_SOURCES)
+DIST_SOURCES = $(chrono1_SOURCES) $(chrono2_SOURCES) $(clock1_SOURCES) \
+	$(limits1_SOURCES) $(minmax1_SOURCES) $(pair1_SOURCES) \
+	$(ratio1_SOURCES) $(sharedptr1_SOURCES) $(sharedptr2_SOURCES) \
+	$(sharedptr3_SOURCES) $(timepoint1_SOURCES) $(tuple1_SOURCES) \
 	$(tuple2_SOURCES) $(uniqueptr1_SOURCES) $(weakptr1_SOURCES) \
 	$(weakptr2_SOURCES)
 am__can_run_installinfo = \
@@ -353,8 +382,17 @@ sharedptr3_SOURCES = sharedptr3.cc
 weakptr1_SOURCES = weakptr1.cc
 weakptr2_SOURCES = weakptr2.cc
 uniqueptr1_SOURCES = uniqueptr1.cc
+limits1_SOURCES = limits1.cc
+minmax1_SOURCES = minmax1.cc
+ratio1_SOURCES = ratio1.cc
+clock1_SOURCES = clock1.cc
+chrono1_SOURCES = chrono1.cc
+chrono2_SOURCES = chrono2.cc
+timepoint1_SOURCES = timepoint1.cc
 pkginclude_HEADERS = \
-	printtuple.h
+	printtuple.h		\
+	clock.h				\
+	timepoint.h
 
 all: all-am
 
@@ -440,9 +478,33 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
+chrono1$(EXEEXT): $(chrono1_OBJECTS) $(chrono1_DEPENDENCIES) $(EXTRA_chrono1_DEPENDENCIES) 
+	@rm -f chrono1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(chrono1_OBJECTS) $(chrono1_LDADD) $(LIBS)
+
+chrono2$(EXEEXT): $(chrono2_OBJECTS) $(chrono2_DEPENDENCIES) $(EXTRA_chrono2_DEPENDENCIES) 
+	@rm -f chrono2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(chrono2_OBJECTS) $(chrono2_LDADD) $(LIBS)
+
+clock1$(EXEEXT): $(clock1_OBJECTS) $(clock1_DEPENDENCIES) $(EXTRA_clock1_DEPENDENCIES) 
+	@rm -f clock1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(clock1_OBJECTS) $(clock1_LDADD) $(LIBS)
+
+limits1$(EXEEXT): $(limits1_OBJECTS) $(limits1_DEPENDENCIES) $(EXTRA_limits1_DEPENDENCIES) 
+	@rm -f limits1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(limits1_OBJECTS) $(limits1_LDADD) $(LIBS)
+
+minmax1$(EXEEXT): $(minmax1_OBJECTS) $(minmax1_DEPENDENCIES) $(EXTRA_minmax1_DEPENDENCIES) 
+	@rm -f minmax1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(minmax1_OBJECTS) $(minmax1_LDADD) $(LIBS)
+
 pair1$(EXEEXT): $(pair1_OBJECTS) $(pair1_DEPENDENCIES) $(EXTRA_pair1_DEPENDENCIES) 
 	@rm -f pair1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(pair1_OBJECTS) $(pair1_LDADD) $(LIBS)
+
+ratio1$(EXEEXT): $(ratio1_OBJECTS) $(ratio1_DEPENDENCIES) $(EXTRA_ratio1_DEPENDENCIES) 
+	@rm -f ratio1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(ratio1_OBJECTS) $(ratio1_LDADD) $(LIBS)
 
 sharedptr1$(EXEEXT): $(sharedptr1_OBJECTS) $(sharedptr1_DEPENDENCIES) $(EXTRA_sharedptr1_DEPENDENCIES) 
 	@rm -f sharedptr1$(EXEEXT)
@@ -455,6 +517,10 @@ sharedptr2$(EXEEXT): $(sharedptr2_OBJECTS) $(sharedptr2_DEPENDENCIES) $(EXTRA_sh
 sharedptr3$(EXEEXT): $(sharedptr3_OBJECTS) $(sharedptr3_DEPENDENCIES) $(EXTRA_sharedptr3_DEPENDENCIES) 
 	@rm -f sharedptr3$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(sharedptr3_OBJECTS) $(sharedptr3_LDADD) $(LIBS)
+
+timepoint1$(EXEEXT): $(timepoint1_OBJECTS) $(timepoint1_DEPENDENCIES) $(EXTRA_timepoint1_DEPENDENCIES) 
+	@rm -f timepoint1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(timepoint1_OBJECTS) $(timepoint1_LDADD) $(LIBS)
 
 tuple1$(EXEEXT): $(tuple1_OBJECTS) $(tuple1_DEPENDENCIES) $(EXTRA_tuple1_DEPENDENCIES) 
 	@rm -f tuple1$(EXEEXT)
@@ -482,10 +548,17 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/chrono1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/chrono2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/clock1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/limits1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/minmax1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pair1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ratio1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sharedptr3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/timepoint1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tuple1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tuple2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/uniqueptr1.Po@am__quote@
