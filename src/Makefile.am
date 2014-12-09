@@ -1,3 +1,4 @@
-SUBDIRS = \
-	lang \
-	util
+SUBDIRS = 	\
+	lang 	\
+	util	\
+	stl

@@ -35,3 +35,14 @@ clock1
 chrono1
 chrono2
 timepoint1
+vector1
+deque1
+array1
+list1
+list2
+forwardlist1
+multiset1
+multimap1
+unorderedmultiset1
+unorderedmultimap1
+associativearray1

@@ -34,5 +34,6 @@ AC_CHECK_HEADERS([algorithm complex functional iterator memory numeric string tu
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/lang/Makefile
-                 src/util/Makefile])
+                 src/util/Makefile
+                 src/stl/Makefile])
 AC_OUTPUT
