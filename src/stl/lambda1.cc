@@ -8,23 +8,19 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
-#ifndef SRC_INCLUDE_PRINT_H_
-#define SRC_INCLUDE_PRINT_H_
-
+#include <algorithm>
+#include <deque>
 #include <iostream>
-#include <string>
 
-// PrintElements()
-// - prints optional string optstr followed by
-// - all elements of the collection col
-// - in one line, separated by spaces
-template <typename T>
-inline void PrintElements(const T& coll, const std::string& optstr="") {
-    std::cout << optstr;
-    for (const auto& elem : coll) {
-        std::cout << elem << ' ';
-    }
-    std::cout << '\n';
+int main() {
+    std::deque<int> coll = {1, 3, 19, 5, 13, 7, 11, 2, 17};
+
+    int x = 5;
+    int y = 12;
+
+    auto pos = std::find_if(coll.cbegin(), coll.cend(),    // range
+                            [=] (int i) {                  // search criterion
+                                return i > x && i < y;});
+
+    std::cout << "first elem > 5 and < 12: " << *pos << '\n';
 }
-
-#endif  // SRC_INCLUDE_PRINT_H_

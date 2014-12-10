@@ -21,7 +21,21 @@ bin_PROGRAMS = 			\
 	copy1				\
 	copy2				\
 	ioiter1				\
-	reviter1
+	reviter1			\
+	remove1				\
+	remove2				\
+	remove3				\
+	remove4				\
+	foreach1			\
+	transform1			\
+	prime1				\
+	sort1				\
+	lambda1				\
+	sort2				\
+	foreach2			\
+	add1				\
+	fo1					\
+	bind1
 
 vector1_SOURCES = vector1.cc
 
@@ -64,3 +78,31 @@ copy2_SOURCES = copy2.cc
 ioiter1_SOURCES = ioiter1.cc
 
 reviter1_SOURCES = reviter1.cc
+
+remove1_SOURCES = remove1.cc
+
+remove2_SOURCES = remove2.cc
+
+remove3_SOURCES = remove3.cc
+
+remove4_SOURCES = remove4.cc
+
+foreach1_SOURCES = foreach1.cc
+
+transform1_SOURCES = transform1.cc
+
+prime1_SOURCES = prime1.cc
+
+sort1_SOURCES = sort1.cc
+
+lambda1_SOURCES = lambda1.cc
+
+sort2_SOURCES = sort2.cc
+
+foreach2_SOURCES = foreach2.cc
+
+add1_SOURCES = add1.cc
+
+fo1_SOURCES = fo1.cc
+
+bind1_SOURCES = bind1.cc

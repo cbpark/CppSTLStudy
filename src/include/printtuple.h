@@ -8,8 +8,8 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
-#ifndef SRC_UTIL_PRINTTUPLE_H_
-#define SRC_UTIL_PRINTTUPLE_H_
+#ifndef SRC_INCLUDE_PRINTTUPLE_H_
+#define SRC_INCLUDE_PRINTTUPLE_H_
 
 #include <iostream>
 #include <tuple>
@@ -38,4 +38,4 @@ std::ostream& operator<<(std::ostream& strm, const std::tuple<Args...>& t) {
     return strm << "]";
 }
 
-#endif  // SRC_UTIL_PRINTTUPLE_H_
+#endif  // SRC_INCLUDE_PRINTTUPLE_H_

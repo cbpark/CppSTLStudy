@@ -85,7 +85,11 @@ bin_PROGRAMS = vector1$(EXEEXT) deque1$(EXEEXT) array1$(EXEEXT) \
 	associativearray1$(EXEEXT) list1old$(EXEEXT) set1$(EXEEXT) \
 	unorderedmultiset2$(EXEEXT) algo1$(EXEEXT) algo1old$(EXEEXT) \
 	find1$(EXEEXT) copy1$(EXEEXT) copy2$(EXEEXT) ioiter1$(EXEEXT) \
-	reviter1$(EXEEXT)
+	reviter1$(EXEEXT) remove1$(EXEEXT) remove2$(EXEEXT) \
+	remove3$(EXEEXT) remove4$(EXEEXT) foreach1$(EXEEXT) \
+	transform1$(EXEEXT) prime1$(EXEEXT) sort1$(EXEEXT) \
+	lambda1$(EXEEXT) sort2$(EXEEXT) foreach2$(EXEEXT) \
+	add1$(EXEEXT) fo1$(EXEEXT) bind1$(EXEEXT)
 subdir = src/stl
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -102,13 +106,16 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_algo1_OBJECTS = algo1.$(OBJEXT)
-algo1_OBJECTS = $(am_algo1_OBJECTS)
-algo1_LDADD = $(LDADD)
+am_add1_OBJECTS = add1.$(OBJEXT)
+add1_OBJECTS = $(am_add1_OBJECTS)
+add1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_algo1_OBJECTS = algo1.$(OBJEXT)
+algo1_OBJECTS = $(am_algo1_OBJECTS)
+algo1_LDADD = $(LDADD)
 am_algo1old_OBJECTS = algo1old.$(OBJEXT)
 algo1old_OBJECTS = $(am_algo1old_OBJECTS)
 algo1old_LDADD = $(LDADD)
@@ -118,6 +125,9 @@ array1_LDADD = $(LDADD)
 am_associativearray1_OBJECTS = associativearray1.$(OBJEXT)
 associativearray1_OBJECTS = $(am_associativearray1_OBJECTS)
 associativearray1_LDADD = $(LDADD)
+am_bind1_OBJECTS = bind1.$(OBJEXT)
+bind1_OBJECTS = $(am_bind1_OBJECTS)
+bind1_LDADD = $(LDADD)
 am_copy1_OBJECTS = copy1.$(OBJEXT)
 copy1_OBJECTS = $(am_copy1_OBJECTS)
 copy1_LDADD = $(LDADD)
@@ -130,12 +140,24 @@ deque1_LDADD = $(LDADD)
 am_find1_OBJECTS = find1.$(OBJEXT)
 find1_OBJECTS = $(am_find1_OBJECTS)
 find1_LDADD = $(LDADD)
+am_fo1_OBJECTS = fo1.$(OBJEXT)
+fo1_OBJECTS = $(am_fo1_OBJECTS)
+fo1_LDADD = $(LDADD)
+am_foreach1_OBJECTS = foreach1.$(OBJEXT)
+foreach1_OBJECTS = $(am_foreach1_OBJECTS)
+foreach1_LDADD = $(LDADD)
+am_foreach2_OBJECTS = foreach2.$(OBJEXT)
+foreach2_OBJECTS = $(am_foreach2_OBJECTS)
+foreach2_LDADD = $(LDADD)
 am_forwardlist1_OBJECTS = forwardlist1.$(OBJEXT)
 forwardlist1_OBJECTS = $(am_forwardlist1_OBJECTS)
 forwardlist1_LDADD = $(LDADD)
 am_ioiter1_OBJECTS = ioiter1.$(OBJEXT)
 ioiter1_OBJECTS = $(am_ioiter1_OBJECTS)
 ioiter1_LDADD = $(LDADD)
+am_lambda1_OBJECTS = lambda1.$(OBJEXT)
+lambda1_OBJECTS = $(am_lambda1_OBJECTS)
+lambda1_LDADD = $(LDADD)
 am_list1_OBJECTS = list1.$(OBJEXT)
 list1_OBJECTS = $(am_list1_OBJECTS)
 list1_LDADD = $(LDADD)
@@ -151,12 +173,36 @@ multimap1_LDADD = $(LDADD)
 am_multiset1_OBJECTS = multiset1.$(OBJEXT)
 multiset1_OBJECTS = $(am_multiset1_OBJECTS)
 multiset1_LDADD = $(LDADD)
+am_prime1_OBJECTS = prime1.$(OBJEXT)
+prime1_OBJECTS = $(am_prime1_OBJECTS)
+prime1_LDADD = $(LDADD)
+am_remove1_OBJECTS = remove1.$(OBJEXT)
+remove1_OBJECTS = $(am_remove1_OBJECTS)
+remove1_LDADD = $(LDADD)
+am_remove2_OBJECTS = remove2.$(OBJEXT)
+remove2_OBJECTS = $(am_remove2_OBJECTS)
+remove2_LDADD = $(LDADD)
+am_remove3_OBJECTS = remove3.$(OBJEXT)
+remove3_OBJECTS = $(am_remove3_OBJECTS)
+remove3_LDADD = $(LDADD)
+am_remove4_OBJECTS = remove4.$(OBJEXT)
+remove4_OBJECTS = $(am_remove4_OBJECTS)
+remove4_LDADD = $(LDADD)
 am_reviter1_OBJECTS = reviter1.$(OBJEXT)
 reviter1_OBJECTS = $(am_reviter1_OBJECTS)
 reviter1_LDADD = $(LDADD)
 am_set1_OBJECTS = set1.$(OBJEXT)
 set1_OBJECTS = $(am_set1_OBJECTS)
 set1_LDADD = $(LDADD)
+am_sort1_OBJECTS = sort1.$(OBJEXT)
+sort1_OBJECTS = $(am_sort1_OBJECTS)
+sort1_LDADD = $(LDADD)
+am_sort2_OBJECTS = sort2.$(OBJEXT)
+sort2_OBJECTS = $(am_sort2_OBJECTS)
+sort2_LDADD = $(LDADD)
+am_transform1_OBJECTS = transform1.$(OBJEXT)
+transform1_OBJECTS = $(am_transform1_OBJECTS)
+transform1_LDADD = $(LDADD)
 am_unorderedmultimap1_OBJECTS = unorderedmultimap1.$(OBJEXT)
 unorderedmultimap1_OBJECTS = $(am_unorderedmultimap1_OBJECTS)
 unorderedmultimap1_LDADD = $(LDADD)
@@ -203,20 +249,30 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(algo1_SOURCES) $(algo1old_SOURCES) $(array1_SOURCES) \
-	$(associativearray1_SOURCES) $(copy1_SOURCES) $(copy2_SOURCES) \
-	$(deque1_SOURCES) $(find1_SOURCES) $(forwardlist1_SOURCES) \
-	$(ioiter1_SOURCES) $(list1_SOURCES) $(list1old_SOURCES) \
-	$(list2_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
-	$(reviter1_SOURCES) $(set1_SOURCES) \
+SOURCES = $(add1_SOURCES) $(algo1_SOURCES) $(algo1old_SOURCES) \
+	$(array1_SOURCES) $(associativearray1_SOURCES) \
+	$(bind1_SOURCES) $(copy1_SOURCES) $(copy2_SOURCES) \
+	$(deque1_SOURCES) $(find1_SOURCES) $(fo1_SOURCES) \
+	$(foreach1_SOURCES) $(foreach2_SOURCES) \
+	$(forwardlist1_SOURCES) $(ioiter1_SOURCES) $(lambda1_SOURCES) \
+	$(list1_SOURCES) $(list1old_SOURCES) $(list2_SOURCES) \
+	$(multimap1_SOURCES) $(multiset1_SOURCES) $(prime1_SOURCES) \
+	$(remove1_SOURCES) $(remove2_SOURCES) $(remove3_SOURCES) \
+	$(remove4_SOURCES) $(reviter1_SOURCES) $(set1_SOURCES) \
+	$(sort1_SOURCES) $(sort2_SOURCES) $(transform1_SOURCES) \
 	$(unorderedmultimap1_SOURCES) $(unorderedmultiset1_SOURCES) \
 	$(unorderedmultiset2_SOURCES) $(vector1_SOURCES)
-DIST_SOURCES = $(algo1_SOURCES) $(algo1old_SOURCES) $(array1_SOURCES) \
-	$(associativearray1_SOURCES) $(copy1_SOURCES) $(copy2_SOURCES) \
-	$(deque1_SOURCES) $(find1_SOURCES) $(forwardlist1_SOURCES) \
-	$(ioiter1_SOURCES) $(list1_SOURCES) $(list1old_SOURCES) \
-	$(list2_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
-	$(reviter1_SOURCES) $(set1_SOURCES) \
+DIST_SOURCES = $(add1_SOURCES) $(algo1_SOURCES) $(algo1old_SOURCES) \
+	$(array1_SOURCES) $(associativearray1_SOURCES) \
+	$(bind1_SOURCES) $(copy1_SOURCES) $(copy2_SOURCES) \
+	$(deque1_SOURCES) $(find1_SOURCES) $(fo1_SOURCES) \
+	$(foreach1_SOURCES) $(foreach2_SOURCES) \
+	$(forwardlist1_SOURCES) $(ioiter1_SOURCES) $(lambda1_SOURCES) \
+	$(list1_SOURCES) $(list1old_SOURCES) $(list2_SOURCES) \
+	$(multimap1_SOURCES) $(multiset1_SOURCES) $(prime1_SOURCES) \
+	$(remove1_SOURCES) $(remove2_SOURCES) $(remove3_SOURCES) \
+	$(remove4_SOURCES) $(reviter1_SOURCES) $(set1_SOURCES) \
+	$(sort1_SOURCES) $(sort2_SOURCES) $(transform1_SOURCES) \
 	$(unorderedmultimap1_SOURCES) $(unorderedmultiset1_SOURCES) \
 	$(unorderedmultiset2_SOURCES) $(vector1_SOURCES)
 am__can_run_installinfo = \
@@ -386,6 +442,20 @@ copy1_SOURCES = copy1.cc
 copy2_SOURCES = copy2.cc
 ioiter1_SOURCES = ioiter1.cc
 reviter1_SOURCES = reviter1.cc
+remove1_SOURCES = remove1.cc
+remove2_SOURCES = remove2.cc
+remove3_SOURCES = remove3.cc
+remove4_SOURCES = remove4.cc
+foreach1_SOURCES = foreach1.cc
+transform1_SOURCES = transform1.cc
+prime1_SOURCES = prime1.cc
+sort1_SOURCES = sort1.cc
+lambda1_SOURCES = lambda1.cc
+sort2_SOURCES = sort2.cc
+foreach2_SOURCES = foreach2.cc
+add1_SOURCES = add1.cc
+fo1_SOURCES = fo1.cc
+bind1_SOURCES = bind1.cc
 all: all-am
 
 .SUFFIXES:
@@ -470,6 +540,10 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
+add1$(EXEEXT): $(add1_OBJECTS) $(add1_DEPENDENCIES) $(EXTRA_add1_DEPENDENCIES) 
+	@rm -f add1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(add1_OBJECTS) $(add1_LDADD) $(LIBS)
+
 algo1$(EXEEXT): $(algo1_OBJECTS) $(algo1_DEPENDENCIES) $(EXTRA_algo1_DEPENDENCIES) 
 	@rm -f algo1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(algo1_OBJECTS) $(algo1_LDADD) $(LIBS)
@@ -485,6 +559,10 @@ array1$(EXEEXT): $(array1_OBJECTS) $(array1_DEPENDENCIES) $(EXTRA_array1_DEPENDE
 associativearray1$(EXEEXT): $(associativearray1_OBJECTS) $(associativearray1_DEPENDENCIES) $(EXTRA_associativearray1_DEPENDENCIES) 
 	@rm -f associativearray1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(associativearray1_OBJECTS) $(associativearray1_LDADD) $(LIBS)
+
+bind1$(EXEEXT): $(bind1_OBJECTS) $(bind1_DEPENDENCIES) $(EXTRA_bind1_DEPENDENCIES) 
+	@rm -f bind1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(bind1_OBJECTS) $(bind1_LDADD) $(LIBS)
 
 copy1$(EXEEXT): $(copy1_OBJECTS) $(copy1_DEPENDENCIES) $(EXTRA_copy1_DEPENDENCIES) 
 	@rm -f copy1$(EXEEXT)
@@ -502,6 +580,18 @@ find1$(EXEEXT): $(find1_OBJECTS) $(find1_DEPENDENCIES) $(EXTRA_find1_DEPENDENCIE
 	@rm -f find1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(find1_OBJECTS) $(find1_LDADD) $(LIBS)
 
+fo1$(EXEEXT): $(fo1_OBJECTS) $(fo1_DEPENDENCIES) $(EXTRA_fo1_DEPENDENCIES) 
+	@rm -f fo1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(fo1_OBJECTS) $(fo1_LDADD) $(LIBS)
+
+foreach1$(EXEEXT): $(foreach1_OBJECTS) $(foreach1_DEPENDENCIES) $(EXTRA_foreach1_DEPENDENCIES) 
+	@rm -f foreach1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foreach1_OBJECTS) $(foreach1_LDADD) $(LIBS)
+
+foreach2$(EXEEXT): $(foreach2_OBJECTS) $(foreach2_DEPENDENCIES) $(EXTRA_foreach2_DEPENDENCIES) 
+	@rm -f foreach2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foreach2_OBJECTS) $(foreach2_LDADD) $(LIBS)
+
 forwardlist1$(EXEEXT): $(forwardlist1_OBJECTS) $(forwardlist1_DEPENDENCIES) $(EXTRA_forwardlist1_DEPENDENCIES) 
 	@rm -f forwardlist1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(forwardlist1_OBJECTS) $(forwardlist1_LDADD) $(LIBS)
@@ -509,6 +599,10 @@ forwardlist1$(EXEEXT): $(forwardlist1_OBJECTS) $(forwardlist1_DEPENDENCIES) $(EX
 ioiter1$(EXEEXT): $(ioiter1_OBJECTS) $(ioiter1_DEPENDENCIES) $(EXTRA_ioiter1_DEPENDENCIES) 
 	@rm -f ioiter1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(ioiter1_OBJECTS) $(ioiter1_LDADD) $(LIBS)
+
+lambda1$(EXEEXT): $(lambda1_OBJECTS) $(lambda1_DEPENDENCIES) $(EXTRA_lambda1_DEPENDENCIES) 
+	@rm -f lambda1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(lambda1_OBJECTS) $(lambda1_LDADD) $(LIBS)
 
 list1$(EXEEXT): $(list1_OBJECTS) $(list1_DEPENDENCIES) $(EXTRA_list1_DEPENDENCIES) 
 	@rm -f list1$(EXEEXT)
@@ -530,6 +624,26 @@ multiset1$(EXEEXT): $(multiset1_OBJECTS) $(multiset1_DEPENDENCIES) $(EXTRA_multi
 	@rm -f multiset1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(multiset1_OBJECTS) $(multiset1_LDADD) $(LIBS)
 
+prime1$(EXEEXT): $(prime1_OBJECTS) $(prime1_DEPENDENCIES) $(EXTRA_prime1_DEPENDENCIES) 
+	@rm -f prime1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(prime1_OBJECTS) $(prime1_LDADD) $(LIBS)
+
+remove1$(EXEEXT): $(remove1_OBJECTS) $(remove1_DEPENDENCIES) $(EXTRA_remove1_DEPENDENCIES) 
+	@rm -f remove1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove1_OBJECTS) $(remove1_LDADD) $(LIBS)
+
+remove2$(EXEEXT): $(remove2_OBJECTS) $(remove2_DEPENDENCIES) $(EXTRA_remove2_DEPENDENCIES) 
+	@rm -f remove2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove2_OBJECTS) $(remove2_LDADD) $(LIBS)
+
+remove3$(EXEEXT): $(remove3_OBJECTS) $(remove3_DEPENDENCIES) $(EXTRA_remove3_DEPENDENCIES) 
+	@rm -f remove3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove3_OBJECTS) $(remove3_LDADD) $(LIBS)
+
+remove4$(EXEEXT): $(remove4_OBJECTS) $(remove4_DEPENDENCIES) $(EXTRA_remove4_DEPENDENCIES) 
+	@rm -f remove4$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove4_OBJECTS) $(remove4_LDADD) $(LIBS)
+
 reviter1$(EXEEXT): $(reviter1_OBJECTS) $(reviter1_DEPENDENCIES) $(EXTRA_reviter1_DEPENDENCIES) 
 	@rm -f reviter1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(reviter1_OBJECTS) $(reviter1_LDADD) $(LIBS)
@@ -537,6 +651,18 @@ reviter1$(EXEEXT): $(reviter1_OBJECTS) $(reviter1_DEPENDENCIES) $(EXTRA_reviter1
 set1$(EXEEXT): $(set1_OBJECTS) $(set1_DEPENDENCIES) $(EXTRA_set1_DEPENDENCIES) 
 	@rm -f set1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(set1_OBJECTS) $(set1_LDADD) $(LIBS)
+
+sort1$(EXEEXT): $(sort1_OBJECTS) $(sort1_DEPENDENCIES) $(EXTRA_sort1_DEPENDENCIES) 
+	@rm -f sort1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sort1_OBJECTS) $(sort1_LDADD) $(LIBS)
+
+sort2$(EXEEXT): $(sort2_OBJECTS) $(sort2_DEPENDENCIES) $(EXTRA_sort2_DEPENDENCIES) 
+	@rm -f sort2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sort2_OBJECTS) $(sort2_LDADD) $(LIBS)
+
+transform1$(EXEEXT): $(transform1_OBJECTS) $(transform1_DEPENDENCIES) $(EXTRA_transform1_DEPENDENCIES) 
+	@rm -f transform1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(transform1_OBJECTS) $(transform1_LDADD) $(LIBS)
 
 unorderedmultimap1$(EXEEXT): $(unorderedmultimap1_OBJECTS) $(unorderedmultimap1_DEPENDENCIES) $(EXTRA_unorderedmultimap1_DEPENDENCIES) 
 	@rm -f unorderedmultimap1$(EXEEXT)
@@ -560,23 +686,37 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/add1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/algo1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/algo1old.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/array1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/associativearray1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bind1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/copy1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/copy2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/deque1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fo1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foreach1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foreach2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlist1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ioiter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lambda1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list1old.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multimap1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multiset1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prime1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove4.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reviter1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/set1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sort1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sort2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/transform1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unorderedmultimap1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unorderedmultiset1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unorderedmultiset2.Po@am__quote@

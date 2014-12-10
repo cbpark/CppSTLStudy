@@ -8,23 +8,27 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
-#ifndef SRC_INCLUDE_PRINT_H_
-#define SRC_INCLUDE_PRINT_H_
-
+#include <algorithm>
 #include <iostream>
-#include <string>
+#include <vector>
 
-// PrintElements()
-// - prints optional string optstr followed by
-// - all elements of the collection col
-// - in one line, separated by spaces
-template <typename T>
-inline void PrintElements(const T& coll, const std::string& optstr="") {
-    std::cout << optstr;
-    for (const auto& elem : coll) {
+// simple function object that prints the passed argument
+struct PrintInt {
+    void operator()(int elem) const {
         std::cout << elem << ' ';
     }
+};
+
+int main() {
+    std::vector<int> coll;
+
+    // insert elements from 1 to 9
+    for (int i = 1; i <= 9; ++i) {
+        coll.push_back(i);
+    }
+
+    // print all elements
+    std::for_each(coll.cbegin(), coll.cend(),  // range
+                  PrintInt());                 // operation
     std::cout << '\n';
 }
-
-#endif  // SRC_INCLUDE_PRINT_H_

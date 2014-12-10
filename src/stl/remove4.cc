@@ -8,23 +8,21 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
-#ifndef SRC_INCLUDE_PRINT_H_
-#define SRC_INCLUDE_PRINT_H_
+#include <algorithm>
+#include <list>
 
-#include <iostream>
-#include <string>
+int main() {
+    std::list<int> coll;
 
-// PrintElements()
-// - prints optional string optstr followed by
-// - all elements of the collection col
-// - in one line, separated by spaces
-template <typename T>
-inline void PrintElements(const T& coll, const std::string& optstr="") {
-    std::cout << optstr;
-    for (const auto& elem : coll) {
-        std::cout << elem << ' ';
+    // insert elements from 6 to 1 and 1 to 6
+    for (int i = 1; i <= 6; ++i) {
+        coll.push_front(i);
+        coll.push_back(i);
     }
-    std::cout << '\n';
-}
 
-#endif  // SRC_INCLUDE_PRINT_H_
+    // remove all elements with value 3 (poor performance)
+    coll.erase(std::remove(coll.begin(), coll.end(), 3), coll.end());
+
+    // remove all elements with value 4 (good performance)
+    coll.remove(4);
+}

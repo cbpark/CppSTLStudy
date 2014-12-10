@@ -8,8 +8,8 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
-#ifndef SRC_UTIL_CLOCK_H_
-#define SRC_UTIL_CLOCK_H_
+#ifndef SRC_INCLUDE_CLOCK_H_
+#define SRC_INCLUDE_CLOCK_H_
 
 #include <chrono>
 #include <iostream>
@@ -34,4 +34,4 @@ void PrintClockData() {
     std::cout << "- is_steady: " << std::boolalpha << C::is_steady << '\n';
 }
 
-#endif  // SRC_UTIL_CLOCK_H_
+#endif  // SRC_INCLUDE_CLOCK_H_
