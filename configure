@@ -15500,7 +15500,7 @@ done
 
 # Checks for library functions.
 
-ac_config_files="$ac_config_files Makefile src/Makefile src/lang/Makefile src/util/Makefile src/stl/Makefile"
+ac_config_files="$ac_config_files Makefile src/Makefile src/lang/Makefile src/util/Makefile src/stl/Makefile src/cont/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16614,6 +16614,7 @@ do
     "src/lang/Makefile") CONFIG_FILES="$CONFIG_FILES src/lang/Makefile" ;;
     "src/util/Makefile") CONFIG_FILES="$CONFIG_FILES src/util/Makefile" ;;
     "src/stl/Makefile") CONFIG_FILES="$CONFIG_FILES src/stl/Makefile" ;;
+    "src/cont/Makefile") CONFIG_FILES="$CONFIG_FILES src/cont/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac
