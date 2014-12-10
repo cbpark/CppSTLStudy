@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -Wall -Wextra
+AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
 bin_PROGRAMS = 	\
 	pair1 		\
@@ -49,8 +49,3 @@ chrono1_SOURCES = chrono1.cc
 chrono2_SOURCES = chrono2.cc
 
 timepoint1_SOURCES = timepoint1.cc
-
-pkginclude_HEADERS = 	\
-	printtuple.h		\
-	clock.h				\
-	timepoint.h

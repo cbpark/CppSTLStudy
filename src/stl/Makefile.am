@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -Wall -Wextra
+AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
 bin_PROGRAMS = 			\
 	vector1				\
@@ -18,7 +18,10 @@ bin_PROGRAMS = 			\
 	algo1				\
 	algo1old			\
 	find1				\
-	copy1
+	copy1				\
+	copy2				\
+	ioiter1				\
+	reviter1
 
 vector1_SOURCES = vector1.cc
 
@@ -56,4 +59,8 @@ find1_SOURCES = find1.cc
 
 copy1_SOURCES = copy1.cc
 
-pkginclude_HEADERS =
+copy2_SOURCES = copy2.cc
+
+ioiter1_SOURCES = ioiter1.cc
+
+reviter1_SOURCES = reviter1.cc
