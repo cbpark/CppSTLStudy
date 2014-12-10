@@ -332,7 +332,8 @@ pkginclude_HEADERS = \
 	include/printtuple.h	\
 	include/clock.h			\
 	include/timepoint.h		\
-	include/print.h
+	include/print.h			\
+	include/findbefore.h
 
 all: all-recursive
 

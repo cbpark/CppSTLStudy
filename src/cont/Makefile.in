@@ -78,7 +78,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = array1$(EXEEXT)
+bin_PROGRAMS = array1$(EXEEXT) vector1$(EXEEXT) deque1$(EXEEXT) \
+	list1$(EXEEXT) forwardlistfind1$(EXEEXT) \
+	forwardlistfind2$(EXEEXT) forwardlistsplice1$(EXEEXT) \
+	forwardlist1$(EXEEXT)
 subdir = src/cont
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -102,6 +105,27 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_deque1_OBJECTS = deque1.$(OBJEXT)
+deque1_OBJECTS = $(am_deque1_OBJECTS)
+deque1_LDADD = $(LDADD)
+am_forwardlist1_OBJECTS = forwardlist1.$(OBJEXT)
+forwardlist1_OBJECTS = $(am_forwardlist1_OBJECTS)
+forwardlist1_LDADD = $(LDADD)
+am_forwardlistfind1_OBJECTS = forwardlistfind1.$(OBJEXT)
+forwardlistfind1_OBJECTS = $(am_forwardlistfind1_OBJECTS)
+forwardlistfind1_LDADD = $(LDADD)
+am_forwardlistfind2_OBJECTS = forwardlistfind2.$(OBJEXT)
+forwardlistfind2_OBJECTS = $(am_forwardlistfind2_OBJECTS)
+forwardlistfind2_LDADD = $(LDADD)
+am_forwardlistsplice1_OBJECTS = forwardlistsplice1.$(OBJEXT)
+forwardlistsplice1_OBJECTS = $(am_forwardlistsplice1_OBJECTS)
+forwardlistsplice1_LDADD = $(LDADD)
+am_list1_OBJECTS = list1.$(OBJEXT)
+list1_OBJECTS = $(am_list1_OBJECTS)
+list1_LDADD = $(LDADD)
+am_vector1_OBJECTS = vector1.$(OBJEXT)
+vector1_OBJECTS = $(am_vector1_OBJECTS)
+vector1_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -136,8 +160,14 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(array1_SOURCES)
-DIST_SOURCES = $(array1_SOURCES)
+SOURCES = $(array1_SOURCES) $(deque1_SOURCES) $(forwardlist1_SOURCES) \
+	$(forwardlistfind1_SOURCES) $(forwardlistfind2_SOURCES) \
+	$(forwardlistsplice1_SOURCES) $(list1_SOURCES) \
+	$(vector1_SOURCES)
+DIST_SOURCES = $(array1_SOURCES) $(deque1_SOURCES) \
+	$(forwardlist1_SOURCES) $(forwardlistfind1_SOURCES) \
+	$(forwardlistfind2_SOURCES) $(forwardlistsplice1_SOURCES) \
+	$(list1_SOURCES) $(vector1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -285,6 +315,13 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 array1_SOURCES = array1.cc
+vector1_SOURCES = vector1.cc
+deque1_SOURCES = deque1.cc
+list1_SOURCES = list1.cc
+forwardlistfind1_SOURCES = forwardlistfind1.cc
+forwardlistfind2_SOURCES = forwardlistfind2.cc
+forwardlistsplice1_SOURCES = forwardlistsplice1.cc
+forwardlist1_SOURCES = forwardlist1.cc
 all: all-am
 
 .SUFFIXES:
@@ -373,6 +410,34 @@ array1$(EXEEXT): $(array1_OBJECTS) $(array1_DEPENDENCIES) $(EXTRA_array1_DEPENDE
 	@rm -f array1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(array1_OBJECTS) $(array1_LDADD) $(LIBS)
 
+deque1$(EXEEXT): $(deque1_OBJECTS) $(deque1_DEPENDENCIES) $(EXTRA_deque1_DEPENDENCIES) 
+	@rm -f deque1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(deque1_OBJECTS) $(deque1_LDADD) $(LIBS)
+
+forwardlist1$(EXEEXT): $(forwardlist1_OBJECTS) $(forwardlist1_DEPENDENCIES) $(EXTRA_forwardlist1_DEPENDENCIES) 
+	@rm -f forwardlist1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(forwardlist1_OBJECTS) $(forwardlist1_LDADD) $(LIBS)
+
+forwardlistfind1$(EXEEXT): $(forwardlistfind1_OBJECTS) $(forwardlistfind1_DEPENDENCIES) $(EXTRA_forwardlistfind1_DEPENDENCIES) 
+	@rm -f forwardlistfind1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(forwardlistfind1_OBJECTS) $(forwardlistfind1_LDADD) $(LIBS)
+
+forwardlistfind2$(EXEEXT): $(forwardlistfind2_OBJECTS) $(forwardlistfind2_DEPENDENCIES) $(EXTRA_forwardlistfind2_DEPENDENCIES) 
+	@rm -f forwardlistfind2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(forwardlistfind2_OBJECTS) $(forwardlistfind2_LDADD) $(LIBS)
+
+forwardlistsplice1$(EXEEXT): $(forwardlistsplice1_OBJECTS) $(forwardlistsplice1_DEPENDENCIES) $(EXTRA_forwardlistsplice1_DEPENDENCIES) 
+	@rm -f forwardlistsplice1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(forwardlistsplice1_OBJECTS) $(forwardlistsplice1_LDADD) $(LIBS)
+
+list1$(EXEEXT): $(list1_OBJECTS) $(list1_DEPENDENCIES) $(EXTRA_list1_DEPENDENCIES) 
+	@rm -f list1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(list1_OBJECTS) $(list1_LDADD) $(LIBS)
+
+vector1$(EXEEXT): $(vector1_OBJECTS) $(vector1_DEPENDENCIES) $(EXTRA_vector1_DEPENDENCIES) 
+	@rm -f vector1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(vector1_OBJECTS) $(vector1_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -380,6 +445,13 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/array1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/deque1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlist1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistfind1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistfind2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistsplice1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vector1.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
