@@ -12,10 +12,10 @@
 #include <ratio>
 
 int main() {
-    typedef std::ratio<5, 3> FiveThirds;
+    using FiveThirds = std::ratio<5, 3>;
     std::cout << FiveThirds::num << "/" << FiveThirds::den << '\n';
 
-    typedef std::ratio<25, 15> AlsoFiveThirds;
+    using AlsoFiveThirds = std::ratio<25, 15>;
     std::cout << AlsoFiveThirds::num << "/" << AlsoFiveThirds::den << '\n';
 
     std::ratio<42, 42> one;
@@ -24,6 +24,6 @@ int main() {
     std::ratio<0> zero;
     std::cout << zero.num << "/" << zero.den << '\n';
 
-    typedef std::ratio<7, -3> Neg;
+    using Neg = std::ratio<7, -3>;
     std::cout << Neg::num << "/" << Neg::den << '\n';
 }

@@ -81,7 +81,10 @@ host_triplet = @host@
 bin_PROGRAMS = array1$(EXEEXT) vector1$(EXEEXT) deque1$(EXEEXT) \
 	list1$(EXEEXT) forwardlistfind1$(EXEEXT) \
 	forwardlistfind2$(EXEEXT) forwardlistsplice1$(EXEEXT) \
-	forwardlist1$(EXEEXT)
+	forwardlist1$(EXEEXT) setrange1$(EXEEXT) set1$(EXEEXT) \
+	multiset1$(EXEEXT) setcmp1$(EXEEXT) map1$(EXEEXT) \
+	map2$(EXEEXT) multimap1$(EXEEXT) mapfind1$(EXEEXT) \
+	mapcmp1$(EXEEXT)
 subdir = src/cont
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -123,6 +126,33 @@ forwardlistsplice1_LDADD = $(LDADD)
 am_list1_OBJECTS = list1.$(OBJEXT)
 list1_OBJECTS = $(am_list1_OBJECTS)
 list1_LDADD = $(LDADD)
+am_map1_OBJECTS = map1.$(OBJEXT)
+map1_OBJECTS = $(am_map1_OBJECTS)
+map1_LDADD = $(LDADD)
+am_map2_OBJECTS = map2.$(OBJEXT)
+map2_OBJECTS = $(am_map2_OBJECTS)
+map2_LDADD = $(LDADD)
+am_mapcmp1_OBJECTS = mapcmp1.$(OBJEXT)
+mapcmp1_OBJECTS = $(am_mapcmp1_OBJECTS)
+mapcmp1_LDADD = $(LDADD)
+am_mapfind1_OBJECTS = mapfind1.$(OBJEXT)
+mapfind1_OBJECTS = $(am_mapfind1_OBJECTS)
+mapfind1_LDADD = $(LDADD)
+am_multimap1_OBJECTS = multimap1.$(OBJEXT)
+multimap1_OBJECTS = $(am_multimap1_OBJECTS)
+multimap1_LDADD = $(LDADD)
+am_multiset1_OBJECTS = multiset1.$(OBJEXT)
+multiset1_OBJECTS = $(am_multiset1_OBJECTS)
+multiset1_LDADD = $(LDADD)
+am_set1_OBJECTS = set1.$(OBJEXT)
+set1_OBJECTS = $(am_set1_OBJECTS)
+set1_LDADD = $(LDADD)
+am_setcmp1_OBJECTS = setcmp1.$(OBJEXT)
+setcmp1_OBJECTS = $(am_setcmp1_OBJECTS)
+setcmp1_LDADD = $(LDADD)
+am_setrange1_OBJECTS = setrange1.$(OBJEXT)
+setrange1_OBJECTS = $(am_setrange1_OBJECTS)
+setrange1_LDADD = $(LDADD)
 am_vector1_OBJECTS = vector1.$(OBJEXT)
 vector1_OBJECTS = $(am_vector1_OBJECTS)
 vector1_LDADD = $(LDADD)
@@ -162,12 +192,17 @@ am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
 SOURCES = $(array1_SOURCES) $(deque1_SOURCES) $(forwardlist1_SOURCES) \
 	$(forwardlistfind1_SOURCES) $(forwardlistfind2_SOURCES) \
-	$(forwardlistsplice1_SOURCES) $(list1_SOURCES) \
-	$(vector1_SOURCES)
+	$(forwardlistsplice1_SOURCES) $(list1_SOURCES) $(map1_SOURCES) \
+	$(map2_SOURCES) $(mapcmp1_SOURCES) $(mapfind1_SOURCES) \
+	$(multimap1_SOURCES) $(multiset1_SOURCES) $(set1_SOURCES) \
+	$(setcmp1_SOURCES) $(setrange1_SOURCES) $(vector1_SOURCES)
 DIST_SOURCES = $(array1_SOURCES) $(deque1_SOURCES) \
 	$(forwardlist1_SOURCES) $(forwardlistfind1_SOURCES) \
 	$(forwardlistfind2_SOURCES) $(forwardlistsplice1_SOURCES) \
-	$(list1_SOURCES) $(vector1_SOURCES)
+	$(list1_SOURCES) $(map1_SOURCES) $(map2_SOURCES) \
+	$(mapcmp1_SOURCES) $(mapfind1_SOURCES) $(multimap1_SOURCES) \
+	$(multiset1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
+	$(setrange1_SOURCES) $(vector1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -322,6 +357,15 @@ forwardlistfind1_SOURCES = forwardlistfind1.cc
 forwardlistfind2_SOURCES = forwardlistfind2.cc
 forwardlistsplice1_SOURCES = forwardlistsplice1.cc
 forwardlist1_SOURCES = forwardlist1.cc
+setrange1_SOURCES = setrange1.cc
+set1_SOURCES = set1.cc
+multiset1_SOURCES = multiset1.cc
+setcmp1_SOURCES = setcmp1.cc
+map1_SOURCES = map1.cc
+map2_SOURCES = map2.cc
+multimap1_SOURCES = multimap1.cc
+mapfind1_SOURCES = mapfind1.cc
+mapcmp1_SOURCES = mapcmp1.cc
 all: all-am
 
 .SUFFIXES:
@@ -434,6 +478,42 @@ list1$(EXEEXT): $(list1_OBJECTS) $(list1_DEPENDENCIES) $(EXTRA_list1_DEPENDENCIE
 	@rm -f list1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(list1_OBJECTS) $(list1_LDADD) $(LIBS)
 
+map1$(EXEEXT): $(map1_OBJECTS) $(map1_DEPENDENCIES) $(EXTRA_map1_DEPENDENCIES) 
+	@rm -f map1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(map1_OBJECTS) $(map1_LDADD) $(LIBS)
+
+map2$(EXEEXT): $(map2_OBJECTS) $(map2_DEPENDENCIES) $(EXTRA_map2_DEPENDENCIES) 
+	@rm -f map2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(map2_OBJECTS) $(map2_LDADD) $(LIBS)
+
+mapcmp1$(EXEEXT): $(mapcmp1_OBJECTS) $(mapcmp1_DEPENDENCIES) $(EXTRA_mapcmp1_DEPENDENCIES) 
+	@rm -f mapcmp1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(mapcmp1_OBJECTS) $(mapcmp1_LDADD) $(LIBS)
+
+mapfind1$(EXEEXT): $(mapfind1_OBJECTS) $(mapfind1_DEPENDENCIES) $(EXTRA_mapfind1_DEPENDENCIES) 
+	@rm -f mapfind1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(mapfind1_OBJECTS) $(mapfind1_LDADD) $(LIBS)
+
+multimap1$(EXEEXT): $(multimap1_OBJECTS) $(multimap1_DEPENDENCIES) $(EXTRA_multimap1_DEPENDENCIES) 
+	@rm -f multimap1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(multimap1_OBJECTS) $(multimap1_LDADD) $(LIBS)
+
+multiset1$(EXEEXT): $(multiset1_OBJECTS) $(multiset1_DEPENDENCIES) $(EXTRA_multiset1_DEPENDENCIES) 
+	@rm -f multiset1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(multiset1_OBJECTS) $(multiset1_LDADD) $(LIBS)
+
+set1$(EXEEXT): $(set1_OBJECTS) $(set1_DEPENDENCIES) $(EXTRA_set1_DEPENDENCIES) 
+	@rm -f set1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(set1_OBJECTS) $(set1_LDADD) $(LIBS)
+
+setcmp1$(EXEEXT): $(setcmp1_OBJECTS) $(setcmp1_DEPENDENCIES) $(EXTRA_setcmp1_DEPENDENCIES) 
+	@rm -f setcmp1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(setcmp1_OBJECTS) $(setcmp1_LDADD) $(LIBS)
+
+setrange1$(EXEEXT): $(setrange1_OBJECTS) $(setrange1_DEPENDENCIES) $(EXTRA_setrange1_DEPENDENCIES) 
+	@rm -f setrange1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(setrange1_OBJECTS) $(setrange1_LDADD) $(LIBS)
+
 vector1$(EXEEXT): $(vector1_OBJECTS) $(vector1_DEPENDENCIES) $(EXTRA_vector1_DEPENDENCIES) 
 	@rm -f vector1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(vector1_OBJECTS) $(vector1_LDADD) $(LIBS)
@@ -451,6 +531,15 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistfind2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistsplice1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/map1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/map2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mapcmp1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mapfind1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multimap1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multiset1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/set1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setcmp1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setrange1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vector1.Po@am__quote@
 
 .cc.o:

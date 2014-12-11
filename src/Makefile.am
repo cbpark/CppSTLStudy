@@ -9,4 +9,5 @@ pkginclude_HEADERS = 		\
 	include/clock.h			\
 	include/timepoint.h		\
 	include/print.h			\
-	include/findbefore.h
+	include/findbefore.h	\
+	include/newkey.h

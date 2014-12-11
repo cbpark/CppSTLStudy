@@ -25,7 +25,7 @@ std::string AsString(const std::chrono::system_clock::time_point& tp) {
 
 int main() {
     // define type for durations that represent day(s)
-    typedef std::chrono::duration<int, std::ratio<3600*24>> Days;
+    using Days = std::chrono::duration<int, std::ratio<3600*24>>;
 
     // process the epoch of this system clock
     std::chrono::time_point<std::chrono::system_clock> tp;

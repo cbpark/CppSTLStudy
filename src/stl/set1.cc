@@ -15,7 +15,7 @@
 int main() {
     // type of the collection
     // typedef std::set<int> IntSet;
-    typedef std::set<int, std::greater<int>> IntSet;
+    using IntSet = std::set<int, std::greater<int>>;
 
     IntSet coll;  // set container for int values
 

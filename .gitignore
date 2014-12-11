@@ -73,3 +73,9 @@ bind1
 forwardlistfind1
 forwardlistfind2
 forwardlistsplice1
+setrange1
+setcmp1
+map1
+map2
+mapfind1
+mapcmp1
