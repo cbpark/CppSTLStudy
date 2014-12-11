@@ -18,15 +18,17 @@ int main() {
     std::multimap<std::string, std::string> dict;
 
     // insert some elements in random order
-    dict.insert({{"day",  "Tag"}
-            , {"strange", "fremd"}
-            , {"car",     "Auto"}
-            , {"smart",   "elegant"}
-            , {"trait",   "Merkmal"}
-            , {"strange", "seltsam"}
-            , {"smart",   "raffiniert"}
-            , {"smart",   "klug"}
-            , {"clever",  "raffiniert"}});
+    dict.insert({
+            {"day",     "Tag"},
+            {"strange", "fremd"},
+            {"car",     "Auto"},
+            {"smart",   "elegant"},
+            {"trait",   "Merkmal"},
+            {"strange", "seltsam"},
+            {"smart",   "raffiniert"},
+            {"smart",   "klug"},
+            {"clever",  "raffiniert"}
+        });
 
     // print all elements
     std::cout.setf(std::ios::left, std::ios::adjustfield);

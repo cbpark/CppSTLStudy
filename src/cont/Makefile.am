@@ -17,7 +17,16 @@ bin_PROGRAMS = 			\
 	map2				\
 	multimap1			\
 	mapfind1			\
-	mapcmp1
+	mapcmp1				\
+	unordset1			\
+	unordmultiset1		\
+	hashfunc1			\
+	hashfunc2			\
+	unordinspect1		\
+	unordmultimap1		\
+	cstylearray1		\
+	cstylearray1old		\
+	refsem1
 
 array1_SOURCES = array1.cc
 
@@ -52,3 +61,21 @@ multimap1_SOURCES = multimap1.cc
 mapfind1_SOURCES = mapfind1.cc
 
 mapcmp1_SOURCES = mapcmp1.cc
+
+unordset1_SOURCES = unordset1.cc
+
+unordmultiset1_SOURCES = unordmultiset1.cc
+
+hashfunc1_SOURCES = hashfunc1.cc
+
+hashfunc2_SOURCES = hashfunc2.cc
+
+unordinspect1_SOURCES = unordinspect1.cc
+
+unordmultimap1_SOURCES = unordmultimap1.cc
+
+cstylearray1_SOURCES = cstylearray1.cc
+
+cstylearray1old_SOURCES = cstylearray1old.cc
+
+refsem1_SOURCES = refsem1.cc

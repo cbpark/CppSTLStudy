@@ -74,15 +74,15 @@ int main() {
 void FillAndPrint(StringStringMap& coll) {
     // insert elements in random order
     coll["Deutschland"] = "Germany";
-    coll["deutsch"] = "German";
-    coll["Haken"] = "snag";
-    coll["arbeiten"] = "work";
-    coll["Hund"] = "dog";
-    coll["gehen"] = "go";
+    coll["deutsch"]     = "German";
+    coll["Haken"]       = "snag";
+    coll["arbeiten"]    = "work";
+    coll["Hund"]        = "dog";
+    coll["gehen"]       = "go";
     coll["Unternehmen"] = "enterprise";
     coll["unternehmen"] = "undertake";
-    coll["gehen"] = "walk";
-    coll["Bestatter"] = "undertaker";
+    coll["gehen"]       = "walk";
+    coll["Bestatter"]   = "undertaker";
 
     // print elements
     std::cout.setf(std::ios::left, std::ios::adjustfield);

@@ -84,7 +84,10 @@ bin_PROGRAMS = array1$(EXEEXT) vector1$(EXEEXT) deque1$(EXEEXT) \
 	forwardlist1$(EXEEXT) setrange1$(EXEEXT) set1$(EXEEXT) \
 	multiset1$(EXEEXT) setcmp1$(EXEEXT) map1$(EXEEXT) \
 	map2$(EXEEXT) multimap1$(EXEEXT) mapfind1$(EXEEXT) \
-	mapcmp1$(EXEEXT)
+	mapcmp1$(EXEEXT) unordset1$(EXEEXT) unordmultiset1$(EXEEXT) \
+	hashfunc1$(EXEEXT) hashfunc2$(EXEEXT) unordinspect1$(EXEEXT) \
+	unordmultimap1$(EXEEXT) cstylearray1$(EXEEXT) \
+	cstylearray1old$(EXEEXT) refsem1$(EXEEXT)
 subdir = src/cont
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -108,6 +111,12 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_cstylearray1_OBJECTS = cstylearray1.$(OBJEXT)
+cstylearray1_OBJECTS = $(am_cstylearray1_OBJECTS)
+cstylearray1_LDADD = $(LDADD)
+am_cstylearray1old_OBJECTS = cstylearray1old.$(OBJEXT)
+cstylearray1old_OBJECTS = $(am_cstylearray1old_OBJECTS)
+cstylearray1old_LDADD = $(LDADD)
 am_deque1_OBJECTS = deque1.$(OBJEXT)
 deque1_OBJECTS = $(am_deque1_OBJECTS)
 deque1_LDADD = $(LDADD)
@@ -123,6 +132,12 @@ forwardlistfind2_LDADD = $(LDADD)
 am_forwardlistsplice1_OBJECTS = forwardlistsplice1.$(OBJEXT)
 forwardlistsplice1_OBJECTS = $(am_forwardlistsplice1_OBJECTS)
 forwardlistsplice1_LDADD = $(LDADD)
+am_hashfunc1_OBJECTS = hashfunc1.$(OBJEXT)
+hashfunc1_OBJECTS = $(am_hashfunc1_OBJECTS)
+hashfunc1_LDADD = $(LDADD)
+am_hashfunc2_OBJECTS = hashfunc2.$(OBJEXT)
+hashfunc2_OBJECTS = $(am_hashfunc2_OBJECTS)
+hashfunc2_LDADD = $(LDADD)
 am_list1_OBJECTS = list1.$(OBJEXT)
 list1_OBJECTS = $(am_list1_OBJECTS)
 list1_LDADD = $(LDADD)
@@ -144,6 +159,9 @@ multimap1_LDADD = $(LDADD)
 am_multiset1_OBJECTS = multiset1.$(OBJEXT)
 multiset1_OBJECTS = $(am_multiset1_OBJECTS)
 multiset1_LDADD = $(LDADD)
+am_refsem1_OBJECTS = refsem1.$(OBJEXT)
+refsem1_OBJECTS = $(am_refsem1_OBJECTS)
+refsem1_LDADD = $(LDADD)
 am_set1_OBJECTS = set1.$(OBJEXT)
 set1_OBJECTS = $(am_set1_OBJECTS)
 set1_LDADD = $(LDADD)
@@ -153,6 +171,18 @@ setcmp1_LDADD = $(LDADD)
 am_setrange1_OBJECTS = setrange1.$(OBJEXT)
 setrange1_OBJECTS = $(am_setrange1_OBJECTS)
 setrange1_LDADD = $(LDADD)
+am_unordinspect1_OBJECTS = unordinspect1.$(OBJEXT)
+unordinspect1_OBJECTS = $(am_unordinspect1_OBJECTS)
+unordinspect1_LDADD = $(LDADD)
+am_unordmultimap1_OBJECTS = unordmultimap1.$(OBJEXT)
+unordmultimap1_OBJECTS = $(am_unordmultimap1_OBJECTS)
+unordmultimap1_LDADD = $(LDADD)
+am_unordmultiset1_OBJECTS = unordmultiset1.$(OBJEXT)
+unordmultiset1_OBJECTS = $(am_unordmultiset1_OBJECTS)
+unordmultiset1_LDADD = $(LDADD)
+am_unordset1_OBJECTS = unordset1.$(OBJEXT)
+unordset1_OBJECTS = $(am_unordset1_OBJECTS)
+unordset1_LDADD = $(LDADD)
 am_vector1_OBJECTS = vector1.$(OBJEXT)
 vector1_OBJECTS = $(am_vector1_OBJECTS)
 vector1_LDADD = $(LDADD)
@@ -190,19 +220,28 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(array1_SOURCES) $(deque1_SOURCES) $(forwardlist1_SOURCES) \
-	$(forwardlistfind1_SOURCES) $(forwardlistfind2_SOURCES) \
-	$(forwardlistsplice1_SOURCES) $(list1_SOURCES) $(map1_SOURCES) \
-	$(map2_SOURCES) $(mapcmp1_SOURCES) $(mapfind1_SOURCES) \
-	$(multimap1_SOURCES) $(multiset1_SOURCES) $(set1_SOURCES) \
-	$(setcmp1_SOURCES) $(setrange1_SOURCES) $(vector1_SOURCES)
-DIST_SOURCES = $(array1_SOURCES) $(deque1_SOURCES) \
+SOURCES = $(array1_SOURCES) $(cstylearray1_SOURCES) \
+	$(cstylearray1old_SOURCES) $(deque1_SOURCES) \
 	$(forwardlist1_SOURCES) $(forwardlistfind1_SOURCES) \
 	$(forwardlistfind2_SOURCES) $(forwardlistsplice1_SOURCES) \
-	$(list1_SOURCES) $(map1_SOURCES) $(map2_SOURCES) \
-	$(mapcmp1_SOURCES) $(mapfind1_SOURCES) $(multimap1_SOURCES) \
-	$(multiset1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
-	$(setrange1_SOURCES) $(vector1_SOURCES)
+	$(hashfunc1_SOURCES) $(hashfunc2_SOURCES) $(list1_SOURCES) \
+	$(map1_SOURCES) $(map2_SOURCES) $(mapcmp1_SOURCES) \
+	$(mapfind1_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
+	$(refsem1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
+	$(setrange1_SOURCES) $(unordinspect1_SOURCES) \
+	$(unordmultimap1_SOURCES) $(unordmultiset1_SOURCES) \
+	$(unordset1_SOURCES) $(vector1_SOURCES)
+DIST_SOURCES = $(array1_SOURCES) $(cstylearray1_SOURCES) \
+	$(cstylearray1old_SOURCES) $(deque1_SOURCES) \
+	$(forwardlist1_SOURCES) $(forwardlistfind1_SOURCES) \
+	$(forwardlistfind2_SOURCES) $(forwardlistsplice1_SOURCES) \
+	$(hashfunc1_SOURCES) $(hashfunc2_SOURCES) $(list1_SOURCES) \
+	$(map1_SOURCES) $(map2_SOURCES) $(mapcmp1_SOURCES) \
+	$(mapfind1_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
+	$(refsem1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
+	$(setrange1_SOURCES) $(unordinspect1_SOURCES) \
+	$(unordmultimap1_SOURCES) $(unordmultiset1_SOURCES) \
+	$(unordset1_SOURCES) $(vector1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -366,6 +405,15 @@ map2_SOURCES = map2.cc
 multimap1_SOURCES = multimap1.cc
 mapfind1_SOURCES = mapfind1.cc
 mapcmp1_SOURCES = mapcmp1.cc
+unordset1_SOURCES = unordset1.cc
+unordmultiset1_SOURCES = unordmultiset1.cc
+hashfunc1_SOURCES = hashfunc1.cc
+hashfunc2_SOURCES = hashfunc2.cc
+unordinspect1_SOURCES = unordinspect1.cc
+unordmultimap1_SOURCES = unordmultimap1.cc
+cstylearray1_SOURCES = cstylearray1.cc
+cstylearray1old_SOURCES = cstylearray1old.cc
+refsem1_SOURCES = refsem1.cc
 all: all-am
 
 .SUFFIXES:
@@ -454,6 +502,14 @@ array1$(EXEEXT): $(array1_OBJECTS) $(array1_DEPENDENCIES) $(EXTRA_array1_DEPENDE
 	@rm -f array1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(array1_OBJECTS) $(array1_LDADD) $(LIBS)
 
+cstylearray1$(EXEEXT): $(cstylearray1_OBJECTS) $(cstylearray1_DEPENDENCIES) $(EXTRA_cstylearray1_DEPENDENCIES) 
+	@rm -f cstylearray1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(cstylearray1_OBJECTS) $(cstylearray1_LDADD) $(LIBS)
+
+cstylearray1old$(EXEEXT): $(cstylearray1old_OBJECTS) $(cstylearray1old_DEPENDENCIES) $(EXTRA_cstylearray1old_DEPENDENCIES) 
+	@rm -f cstylearray1old$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(cstylearray1old_OBJECTS) $(cstylearray1old_LDADD) $(LIBS)
+
 deque1$(EXEEXT): $(deque1_OBJECTS) $(deque1_DEPENDENCIES) $(EXTRA_deque1_DEPENDENCIES) 
 	@rm -f deque1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(deque1_OBJECTS) $(deque1_LDADD) $(LIBS)
@@ -473,6 +529,14 @@ forwardlistfind2$(EXEEXT): $(forwardlistfind2_OBJECTS) $(forwardlistfind2_DEPEND
 forwardlistsplice1$(EXEEXT): $(forwardlistsplice1_OBJECTS) $(forwardlistsplice1_DEPENDENCIES) $(EXTRA_forwardlistsplice1_DEPENDENCIES) 
 	@rm -f forwardlistsplice1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(forwardlistsplice1_OBJECTS) $(forwardlistsplice1_LDADD) $(LIBS)
+
+hashfunc1$(EXEEXT): $(hashfunc1_OBJECTS) $(hashfunc1_DEPENDENCIES) $(EXTRA_hashfunc1_DEPENDENCIES) 
+	@rm -f hashfunc1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(hashfunc1_OBJECTS) $(hashfunc1_LDADD) $(LIBS)
+
+hashfunc2$(EXEEXT): $(hashfunc2_OBJECTS) $(hashfunc2_DEPENDENCIES) $(EXTRA_hashfunc2_DEPENDENCIES) 
+	@rm -f hashfunc2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(hashfunc2_OBJECTS) $(hashfunc2_LDADD) $(LIBS)
 
 list1$(EXEEXT): $(list1_OBJECTS) $(list1_DEPENDENCIES) $(EXTRA_list1_DEPENDENCIES) 
 	@rm -f list1$(EXEEXT)
@@ -502,6 +566,10 @@ multiset1$(EXEEXT): $(multiset1_OBJECTS) $(multiset1_DEPENDENCIES) $(EXTRA_multi
 	@rm -f multiset1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(multiset1_OBJECTS) $(multiset1_LDADD) $(LIBS)
 
+refsem1$(EXEEXT): $(refsem1_OBJECTS) $(refsem1_DEPENDENCIES) $(EXTRA_refsem1_DEPENDENCIES) 
+	@rm -f refsem1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(refsem1_OBJECTS) $(refsem1_LDADD) $(LIBS)
+
 set1$(EXEEXT): $(set1_OBJECTS) $(set1_DEPENDENCIES) $(EXTRA_set1_DEPENDENCIES) 
 	@rm -f set1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(set1_OBJECTS) $(set1_LDADD) $(LIBS)
@@ -514,6 +582,22 @@ setrange1$(EXEEXT): $(setrange1_OBJECTS) $(setrange1_DEPENDENCIES) $(EXTRA_setra
 	@rm -f setrange1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(setrange1_OBJECTS) $(setrange1_LDADD) $(LIBS)
 
+unordinspect1$(EXEEXT): $(unordinspect1_OBJECTS) $(unordinspect1_DEPENDENCIES) $(EXTRA_unordinspect1_DEPENDENCIES) 
+	@rm -f unordinspect1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unordinspect1_OBJECTS) $(unordinspect1_LDADD) $(LIBS)
+
+unordmultimap1$(EXEEXT): $(unordmultimap1_OBJECTS) $(unordmultimap1_DEPENDENCIES) $(EXTRA_unordmultimap1_DEPENDENCIES) 
+	@rm -f unordmultimap1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unordmultimap1_OBJECTS) $(unordmultimap1_LDADD) $(LIBS)
+
+unordmultiset1$(EXEEXT): $(unordmultiset1_OBJECTS) $(unordmultiset1_DEPENDENCIES) $(EXTRA_unordmultiset1_DEPENDENCIES) 
+	@rm -f unordmultiset1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unordmultiset1_OBJECTS) $(unordmultiset1_LDADD) $(LIBS)
+
+unordset1$(EXEEXT): $(unordset1_OBJECTS) $(unordset1_DEPENDENCIES) $(EXTRA_unordset1_DEPENDENCIES) 
+	@rm -f unordset1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unordset1_OBJECTS) $(unordset1_LDADD) $(LIBS)
+
 vector1$(EXEEXT): $(vector1_OBJECTS) $(vector1_DEPENDENCIES) $(EXTRA_vector1_DEPENDENCIES) 
 	@rm -f vector1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(vector1_OBJECTS) $(vector1_LDADD) $(LIBS)
@@ -525,11 +609,15 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/array1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cstylearray1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cstylearray1old.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/deque1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlist1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistfind1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistfind2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/forwardlistsplice1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashfunc1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashfunc2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/map1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/map2.Po@am__quote@
@@ -537,9 +625,14 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mapfind1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multimap1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multiset1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/refsem1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/set1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setcmp1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setrange1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordinspect1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordmultimap1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordmultiset1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordset1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vector1.Po@am__quote@
 
 .cc.o:

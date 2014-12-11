@@ -10,4 +10,6 @@ pkginclude_HEADERS = 		\
 	include/timepoint.h		\
 	include/print.h			\
 	include/findbefore.h	\
-	include/newkey.h
+	include/newkey.h		\
+	include/hashval.h		\
+	include/buckets.h

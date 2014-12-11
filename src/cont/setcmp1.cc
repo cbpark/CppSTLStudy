@@ -27,7 +27,7 @@ public:
 
     // comparison of elements
     // - member function for any element type
-    template<typename T>
+    template <typename T>
     bool operator()(const T& t1, const T& t2) const {
         return mode == kNormal ? t1 < t2 : t1 > t2;
     }
