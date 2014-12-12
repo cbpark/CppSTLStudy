@@ -1,0 +1,47 @@
+/* The following code example is taken from the book
+ * "The C++ Standard Library - A Tutorial and Reference, 2nd Edition"
+ * by Nicolai M. Josuttis, Addison-Wesley, 2012
+ *
+ * (C) Copyright Nicolai M. Josuttis 2012.
+ * Permission to copy, use, modify, sell and distribute this software
+ * is granted provided this copyright notice appears in all copies.
+ * This software is provided "as is" without express or implied
+ * warranty, and with no claim as to its suitability for any purpose.
+ */
+#include <algorithm>
+#include <deque>
+#include <iostream>
+#include <iterator>
+
+void print(int elem) {
+    std::cout << elem << ' ';
+}
+
+int main() {
+    // create list with elements from 1 to 9
+    std::deque<int> coll = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // find position of element with value 2
+    std::deque<int>::const_iterator pos1;
+    pos1 = std::find(coll.cbegin(), coll.cend(),  // range
+                     2);                          // value
+
+    // find position of element with value 7
+    std::deque<int>::const_iterator pos2;
+    pos2 = std::find(coll.cbegin(), coll.cend(),  // range
+                     7);                          // value
+
+    // print all element in range [pos1, pos2)
+    std::for_each(pos1, pos2,  // range
+                  print);      // operation
+    std::cout << '\n';
+
+    // convert iterators to reverse iterators
+    std::deque<int>::const_reverse_iterator rpos1(pos1);
+    std::deque<int>::const_reverse_iterator rpos2(pos2);
+
+    // print all element in range [pos1, pos2) in reverse order
+    std::for_each(rpos2, rpos1,  // range
+                  print);        // operation
+    std::cout << '\n';
+}

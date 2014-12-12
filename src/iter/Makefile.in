@@ -79,7 +79,11 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = itercategory1$(EXEEXT) advance1$(EXEEXT) \
-	distance1$(EXEEXT) iterswap1$(EXEEXT)
+	distance1$(EXEEXT) iterswap1$(EXEEXT) reviter1$(EXEEXT) \
+	reviter2$(EXEEXT) reviter3$(EXEEXT) reviter4$(EXEEXT) \
+	backinserter1$(EXEEXT) frontinserter1$(EXEEXT) \
+	inserter1$(EXEEXT) ostreamiter1$(EXEEXT) istreamiter1$(EXEEXT) \
+	advance2$(EXEEXT) assoiter1$(EXEEXT)
 subdir = src/iter
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -103,15 +107,48 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_advance2_OBJECTS = advance2.$(OBJEXT)
+advance2_OBJECTS = $(am_advance2_OBJECTS)
+advance2_LDADD = $(LDADD)
+am_assoiter1_OBJECTS = assoiter1.$(OBJEXT)
+assoiter1_OBJECTS = $(am_assoiter1_OBJECTS)
+assoiter1_LDADD = $(LDADD)
+am_backinserter1_OBJECTS = backinserter1.$(OBJEXT)
+backinserter1_OBJECTS = $(am_backinserter1_OBJECTS)
+backinserter1_LDADD = $(LDADD)
 am_distance1_OBJECTS = distance1.$(OBJEXT)
 distance1_OBJECTS = $(am_distance1_OBJECTS)
 distance1_LDADD = $(LDADD)
+am_frontinserter1_OBJECTS = frontinserter1.$(OBJEXT)
+frontinserter1_OBJECTS = $(am_frontinserter1_OBJECTS)
+frontinserter1_LDADD = $(LDADD)
+am_inserter1_OBJECTS = inserter1.$(OBJEXT)
+inserter1_OBJECTS = $(am_inserter1_OBJECTS)
+inserter1_LDADD = $(LDADD)
+am_istreamiter1_OBJECTS = istreamiter1.$(OBJEXT)
+istreamiter1_OBJECTS = $(am_istreamiter1_OBJECTS)
+istreamiter1_LDADD = $(LDADD)
 am_itercategory1_OBJECTS = itercategory1.$(OBJEXT)
 itercategory1_OBJECTS = $(am_itercategory1_OBJECTS)
 itercategory1_LDADD = $(LDADD)
 am_iterswap1_OBJECTS = iterswap1.$(OBJEXT)
 iterswap1_OBJECTS = $(am_iterswap1_OBJECTS)
 iterswap1_LDADD = $(LDADD)
+am_ostreamiter1_OBJECTS = ostreamiter1.$(OBJEXT)
+ostreamiter1_OBJECTS = $(am_ostreamiter1_OBJECTS)
+ostreamiter1_LDADD = $(LDADD)
+am_reviter1_OBJECTS = reviter1.$(OBJEXT)
+reviter1_OBJECTS = $(am_reviter1_OBJECTS)
+reviter1_LDADD = $(LDADD)
+am_reviter2_OBJECTS = reviter2.$(OBJEXT)
+reviter2_OBJECTS = $(am_reviter2_OBJECTS)
+reviter2_LDADD = $(LDADD)
+am_reviter3_OBJECTS = reviter3.$(OBJEXT)
+reviter3_OBJECTS = $(am_reviter3_OBJECTS)
+reviter3_LDADD = $(LDADD)
+am_reviter4_OBJECTS = reviter4.$(OBJEXT)
+reviter4_OBJECTS = $(am_reviter4_OBJECTS)
+reviter4_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -146,10 +183,20 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(advance1_SOURCES) $(distance1_SOURCES) \
-	$(itercategory1_SOURCES) $(iterswap1_SOURCES)
-DIST_SOURCES = $(advance1_SOURCES) $(distance1_SOURCES) \
-	$(itercategory1_SOURCES) $(iterswap1_SOURCES)
+SOURCES = $(advance1_SOURCES) $(advance2_SOURCES) $(assoiter1_SOURCES) \
+	$(backinserter1_SOURCES) $(distance1_SOURCES) \
+	$(frontinserter1_SOURCES) $(inserter1_SOURCES) \
+	$(istreamiter1_SOURCES) $(itercategory1_SOURCES) \
+	$(iterswap1_SOURCES) $(ostreamiter1_SOURCES) \
+	$(reviter1_SOURCES) $(reviter2_SOURCES) $(reviter3_SOURCES) \
+	$(reviter4_SOURCES)
+DIST_SOURCES = $(advance1_SOURCES) $(advance2_SOURCES) \
+	$(assoiter1_SOURCES) $(backinserter1_SOURCES) \
+	$(distance1_SOURCES) $(frontinserter1_SOURCES) \
+	$(inserter1_SOURCES) $(istreamiter1_SOURCES) \
+	$(itercategory1_SOURCES) $(iterswap1_SOURCES) \
+	$(ostreamiter1_SOURCES) $(reviter1_SOURCES) \
+	$(reviter2_SOURCES) $(reviter3_SOURCES) $(reviter4_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -300,6 +347,17 @@ itercategory1_SOURCES = itercategory1.cc
 advance1_SOURCES = advance1.cc
 distance1_SOURCES = distance1.cc
 iterswap1_SOURCES = iterswap1.cc
+reviter1_SOURCES = reviter1.cc
+reviter2_SOURCES = reviter2.cc
+reviter3_SOURCES = reviter3.cc
+reviter4_SOURCES = reviter4.cc
+backinserter1_SOURCES = backinserter1.cc
+frontinserter1_SOURCES = frontinserter1.cc
+inserter1_SOURCES = inserter1.cc
+ostreamiter1_SOURCES = ostreamiter1.cc
+istreamiter1_SOURCES = istreamiter1.cc
+advance2_SOURCES = advance2.cc
+assoiter1_SOURCES = assoiter1.cc
 all: all-am
 
 .SUFFIXES:
@@ -388,9 +446,33 @@ advance1$(EXEEXT): $(advance1_OBJECTS) $(advance1_DEPENDENCIES) $(EXTRA_advance1
 	@rm -f advance1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(advance1_OBJECTS) $(advance1_LDADD) $(LIBS)
 
+advance2$(EXEEXT): $(advance2_OBJECTS) $(advance2_DEPENDENCIES) $(EXTRA_advance2_DEPENDENCIES) 
+	@rm -f advance2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(advance2_OBJECTS) $(advance2_LDADD) $(LIBS)
+
+assoiter1$(EXEEXT): $(assoiter1_OBJECTS) $(assoiter1_DEPENDENCIES) $(EXTRA_assoiter1_DEPENDENCIES) 
+	@rm -f assoiter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(assoiter1_OBJECTS) $(assoiter1_LDADD) $(LIBS)
+
+backinserter1$(EXEEXT): $(backinserter1_OBJECTS) $(backinserter1_DEPENDENCIES) $(EXTRA_backinserter1_DEPENDENCIES) 
+	@rm -f backinserter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(backinserter1_OBJECTS) $(backinserter1_LDADD) $(LIBS)
+
 distance1$(EXEEXT): $(distance1_OBJECTS) $(distance1_DEPENDENCIES) $(EXTRA_distance1_DEPENDENCIES) 
 	@rm -f distance1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(distance1_OBJECTS) $(distance1_LDADD) $(LIBS)
+
+frontinserter1$(EXEEXT): $(frontinserter1_OBJECTS) $(frontinserter1_DEPENDENCIES) $(EXTRA_frontinserter1_DEPENDENCIES) 
+	@rm -f frontinserter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(frontinserter1_OBJECTS) $(frontinserter1_LDADD) $(LIBS)
+
+inserter1$(EXEEXT): $(inserter1_OBJECTS) $(inserter1_DEPENDENCIES) $(EXTRA_inserter1_DEPENDENCIES) 
+	@rm -f inserter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(inserter1_OBJECTS) $(inserter1_LDADD) $(LIBS)
+
+istreamiter1$(EXEEXT): $(istreamiter1_OBJECTS) $(istreamiter1_DEPENDENCIES) $(EXTRA_istreamiter1_DEPENDENCIES) 
+	@rm -f istreamiter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(istreamiter1_OBJECTS) $(istreamiter1_LDADD) $(LIBS)
 
 itercategory1$(EXEEXT): $(itercategory1_OBJECTS) $(itercategory1_DEPENDENCIES) $(EXTRA_itercategory1_DEPENDENCIES) 
 	@rm -f itercategory1$(EXEEXT)
@@ -400,6 +482,26 @@ iterswap1$(EXEEXT): $(iterswap1_OBJECTS) $(iterswap1_DEPENDENCIES) $(EXTRA_iters
 	@rm -f iterswap1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(iterswap1_OBJECTS) $(iterswap1_LDADD) $(LIBS)
 
+ostreamiter1$(EXEEXT): $(ostreamiter1_OBJECTS) $(ostreamiter1_DEPENDENCIES) $(EXTRA_ostreamiter1_DEPENDENCIES) 
+	@rm -f ostreamiter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(ostreamiter1_OBJECTS) $(ostreamiter1_LDADD) $(LIBS)
+
+reviter1$(EXEEXT): $(reviter1_OBJECTS) $(reviter1_DEPENDENCIES) $(EXTRA_reviter1_DEPENDENCIES) 
+	@rm -f reviter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(reviter1_OBJECTS) $(reviter1_LDADD) $(LIBS)
+
+reviter2$(EXEEXT): $(reviter2_OBJECTS) $(reviter2_DEPENDENCIES) $(EXTRA_reviter2_DEPENDENCIES) 
+	@rm -f reviter2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(reviter2_OBJECTS) $(reviter2_LDADD) $(LIBS)
+
+reviter3$(EXEEXT): $(reviter3_OBJECTS) $(reviter3_DEPENDENCIES) $(EXTRA_reviter3_DEPENDENCIES) 
+	@rm -f reviter3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(reviter3_OBJECTS) $(reviter3_LDADD) $(LIBS)
+
+reviter4$(EXEEXT): $(reviter4_OBJECTS) $(reviter4_DEPENDENCIES) $(EXTRA_reviter4_DEPENDENCIES) 
+	@rm -f reviter4$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(reviter4_OBJECTS) $(reviter4_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -407,9 +509,20 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/advance1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/advance2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/assoiter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/backinserter1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/distance1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frontinserter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/inserter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/istreamiter1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/itercategory1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/iterswap1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ostreamiter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reviter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reviter2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reviter3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reviter4.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

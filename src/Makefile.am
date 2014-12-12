@@ -13,4 +13,5 @@ pkginclude_HEADERS = 		\
 	include/findbefore.h	\
 	include/newkey.h		\
 	include/hashval.h		\
-	include/buckets.h
+	include/buckets.h		\
+	include/assoiter.h
