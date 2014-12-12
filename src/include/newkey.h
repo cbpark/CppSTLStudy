@@ -12,7 +12,7 @@
 #define SRC_INCLUDE_NEWKEY_H_
 
 namespace mylib {
-    template <typename Cont>
+    template<typename Cont>
     inline bool replace_key(Cont& c,
                             const typename Cont::key_type& old_key,
                             const typename Cont::key_type& new_key) {

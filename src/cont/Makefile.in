@@ -87,7 +87,8 @@ bin_PROGRAMS = array1$(EXEEXT) vector1$(EXEEXT) deque1$(EXEEXT) \
 	mapcmp1$(EXEEXT) unordset1$(EXEEXT) unordmultiset1$(EXEEXT) \
 	hashfunc1$(EXEEXT) hashfunc2$(EXEEXT) unordinspect1$(EXEEXT) \
 	unordmultimap1$(EXEEXT) cstylearray1$(EXEEXT) \
-	cstylearray1old$(EXEEXT) refsem1$(EXEEXT)
+	cstylearray1old$(EXEEXT) refsem1$(EXEEXT) sortset$(EXEEXT) \
+	sortvec$(EXEEXT)
 subdir = src/cont
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -171,6 +172,12 @@ setcmp1_LDADD = $(LDADD)
 am_setrange1_OBJECTS = setrange1.$(OBJEXT)
 setrange1_OBJECTS = $(am_setrange1_OBJECTS)
 setrange1_LDADD = $(LDADD)
+am_sortset_OBJECTS = sortset.$(OBJEXT)
+sortset_OBJECTS = $(am_sortset_OBJECTS)
+sortset_LDADD = $(LDADD)
+am_sortvec_OBJECTS = sortvec.$(OBJEXT)
+sortvec_OBJECTS = $(am_sortvec_OBJECTS)
+sortvec_LDADD = $(LDADD)
 am_unordinspect1_OBJECTS = unordinspect1.$(OBJEXT)
 unordinspect1_OBJECTS = $(am_unordinspect1_OBJECTS)
 unordinspect1_LDADD = $(LDADD)
@@ -228,9 +235,10 @@ SOURCES = $(array1_SOURCES) $(cstylearray1_SOURCES) \
 	$(map1_SOURCES) $(map2_SOURCES) $(mapcmp1_SOURCES) \
 	$(mapfind1_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
 	$(refsem1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
-	$(setrange1_SOURCES) $(unordinspect1_SOURCES) \
-	$(unordmultimap1_SOURCES) $(unordmultiset1_SOURCES) \
-	$(unordset1_SOURCES) $(vector1_SOURCES)
+	$(setrange1_SOURCES) $(sortset_SOURCES) $(sortvec_SOURCES) \
+	$(unordinspect1_SOURCES) $(unordmultimap1_SOURCES) \
+	$(unordmultiset1_SOURCES) $(unordset1_SOURCES) \
+	$(vector1_SOURCES)
 DIST_SOURCES = $(array1_SOURCES) $(cstylearray1_SOURCES) \
 	$(cstylearray1old_SOURCES) $(deque1_SOURCES) \
 	$(forwardlist1_SOURCES) $(forwardlistfind1_SOURCES) \
@@ -239,9 +247,10 @@ DIST_SOURCES = $(array1_SOURCES) $(cstylearray1_SOURCES) \
 	$(map1_SOURCES) $(map2_SOURCES) $(mapcmp1_SOURCES) \
 	$(mapfind1_SOURCES) $(multimap1_SOURCES) $(multiset1_SOURCES) \
 	$(refsem1_SOURCES) $(set1_SOURCES) $(setcmp1_SOURCES) \
-	$(setrange1_SOURCES) $(unordinspect1_SOURCES) \
-	$(unordmultimap1_SOURCES) $(unordmultiset1_SOURCES) \
-	$(unordset1_SOURCES) $(vector1_SOURCES)
+	$(setrange1_SOURCES) $(sortset_SOURCES) $(sortvec_SOURCES) \
+	$(unordinspect1_SOURCES) $(unordmultimap1_SOURCES) \
+	$(unordmultiset1_SOURCES) $(unordset1_SOURCES) \
+	$(vector1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -414,6 +423,8 @@ unordmultimap1_SOURCES = unordmultimap1.cc
 cstylearray1_SOURCES = cstylearray1.cc
 cstylearray1old_SOURCES = cstylearray1old.cc
 refsem1_SOURCES = refsem1.cc
+sortset_SOURCES = sortset.cc
+sortvec_SOURCES = sortvec.cc
 all: all-am
 
 .SUFFIXES:
@@ -582,6 +593,14 @@ setrange1$(EXEEXT): $(setrange1_OBJECTS) $(setrange1_DEPENDENCIES) $(EXTRA_setra
 	@rm -f setrange1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(setrange1_OBJECTS) $(setrange1_LDADD) $(LIBS)
 
+sortset$(EXEEXT): $(sortset_OBJECTS) $(sortset_DEPENDENCIES) $(EXTRA_sortset_DEPENDENCIES) 
+	@rm -f sortset$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sortset_OBJECTS) $(sortset_LDADD) $(LIBS)
+
+sortvec$(EXEEXT): $(sortvec_OBJECTS) $(sortvec_DEPENDENCIES) $(EXTRA_sortvec_DEPENDENCIES) 
+	@rm -f sortvec$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(sortvec_OBJECTS) $(sortvec_LDADD) $(LIBS)
+
 unordinspect1$(EXEEXT): $(unordinspect1_OBJECTS) $(unordinspect1_DEPENDENCIES) $(EXTRA_unordinspect1_DEPENDENCIES) 
 	@rm -f unordinspect1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(unordinspect1_OBJECTS) $(unordinspect1_LDADD) $(LIBS)
@@ -629,6 +648,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/set1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setcmp1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setrange1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sortset.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sortvec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordinspect1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordmultimap1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unordmultiset1.Po@am__quote@

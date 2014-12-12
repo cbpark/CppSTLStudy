@@ -11,7 +11,7 @@
 #ifndef SRC_INCLUDE_FINDBEFORE_H_
 #define SRC_INCLUDE_FINDBEFORE_H_
 
-template <typename InputIterator, typename Tp>
+template<typename InputIterator, typename Tp>
 inline InputIterator
 find_before(InputIterator first, InputIterator last, const Tp& val) {
     if (first == last) {
@@ -28,7 +28,7 @@ find_before(InputIterator first, InputIterator last, const Tp& val) {
     return first;
 }
 
-template <typename InputIterator, typename Pred>
+template<typename InputIterator, typename Pred>
 inline InputIterator
 find_before_if(InputIterator first, InputIterator last, Pred pred) {
     if (first == last) {

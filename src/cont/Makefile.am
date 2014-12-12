@@ -26,7 +26,9 @@ bin_PROGRAMS = 			\
 	unordmultimap1		\
 	cstylearray1		\
 	cstylearray1old		\
-	refsem1
+	refsem1				\
+	sortset				\
+	sortvec
 
 array1_SOURCES = array1.cc
 
@@ -79,3 +81,7 @@ cstylearray1_SOURCES = cstylearray1.cc
 cstylearray1old_SOURCES = cstylearray1old.cc
 
 refsem1_SOURCES = refsem1.cc
+
+sortset_SOURCES = sortset.cc
+
+sortvec_SOURCES = sortvec.cc

@@ -18,7 +18,7 @@
 // - prints optional string optstr followed by
 // - all elements of the collection col
 // - in one line, separated by spaces
-template <typename T>
+template<typename T>
 inline void PrintElements(const T& coll, const std::string& optstr="") {
     std::cout << optstr;
     for (const auto& elem : coll) {

@@ -16,7 +16,7 @@
 #include <iomanip>
 #include <ratio>
 
-template <typename C>
+template<typename C>
 void PrintClockData() {
     std::cout << "- precision: ";
     // if time unit is less or equal one millisecond

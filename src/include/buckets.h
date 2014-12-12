@@ -18,12 +18,12 @@
 #include <utility>
 
 // generic output for pairs (map elements)
-template <typename T1, typename T2>
+template<typename T1, typename T2>
 std::ostream& operator<<(std::ostream& strm, const std::pair<T1, T2>& p) {
     return strm << "[" << p.first << "," << p.second << "]";
 }
 
-template <typename T>
+template<typename T>
 void PrintHashTableState(const T& cont) {
     // basic layout data
     std::cout << "size:            " << cont.size() << '\n';

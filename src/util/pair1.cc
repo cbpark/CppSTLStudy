@@ -16,7 +16,7 @@ struct Foo {
     explicit Foo(std::tuple<int, double>) {
         std::cout << "Foo::Foo(tuple)\n";
     }
-    template <typename... Args>
+    template<typename... Args>
     Foo(Args... args) {
         std::cout << "Foo::Foo(args...)\n";
     }

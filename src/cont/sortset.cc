@@ -8,28 +8,19 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  */
+#include <algorithm>
 #include <iostream>
-#include <list>
-
-template<typename T>
-void PrintElements(const T& coll) {
-    for (const auto& elem : coll) {
-        std::cout << elem << '\n';
-    }
-}
+#include <iterator>
+#include <set>
+#include <string>
 
 int main() {
-    std::list<char> coll;  // list container for character elements
-
-    // append elements from 'a' to 'z'
-    for (char c = 'a'; c <= 'z'; ++c) {
-        coll.push_back(c);
-    }
+    // create a string set
+    // - initialized by all words from standard input
+    std::set<std::string> coll((std::istream_iterator<std::string>(std::cin)),
+                               std::istream_iterator<std::string>());
 
     // print all elements
-    // - use range-based for loop
-    for (auto elem : coll) {
-        std::cout << elem << ' ';
-    }
-    std::cout << '\n';
+    std::copy(coll.cbegin(), coll.cend(),
+              std::ostream_iterator<std::string>(std::cout, "\n"));
 }
