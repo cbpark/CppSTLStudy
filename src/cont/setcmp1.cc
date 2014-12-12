@@ -16,25 +16,23 @@
 class RuntimeCmp {
 public:
     enum CmpMode {kNormal, kReverse};
-
 private:
-    CmpMode mode;
-
+    CmpMode mode_;
 public:
     // constructor for sorting criterion
     // - default criterion uses value normal
-    RuntimeCmp(CmpMode m = kNormal) : mode(m) { }
+    RuntimeCmp(CmpMode m = kNormal) : mode_(m) { }
 
     // comparison of elements
     // - member function for any element type
     template<typename T>
     bool operator()(const T& t1, const T& t2) const {
-        return mode == kNormal ? t1 < t2 : t1 > t2;
+        return mode_ == kNormal ? t1 < t2 : t1 > t2;
     }
 
     // comparison of sorting criteria
     bool operator==(const RuntimeCmp& rc) const {
-        return mode == rc.mode;
+        return mode_ == rc.mode_;
     }
 };
 

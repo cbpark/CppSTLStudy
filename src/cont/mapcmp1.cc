@@ -22,23 +22,21 @@ class RuntimeStringCmp {
 public:
     // constants for the comparsion criterion
     enum CmpMode {kNormal, kNoCase};
-
 private:
     // actual comparison mode
-    const CmpMode mode;
+    const CmpMode mode_;
 
     // auxiliary function to compare case insensitive
     static bool nocase_compare(char c1, char c2) {
         return std::toupper(c1) < std::toupper(c2);
     }
-
 public:
     // constructor: initialize the comparison criterion
-    explicit RuntimeStringCmp(CmpMode m = kNormal) : mode(m) { }
+    explicit RuntimeStringCmp(CmpMode m = kNormal) : mode_(m) { }
 
     // the comparison
     bool operator()(const std::string& s1, const std::string& s2) const {
-        if (mode == kNormal) {
+        if (mode_ == kNormal) {
             return s1 < s2;
         } else {
             return std::lexicographical_compare(s1.begin(), s1.end(),

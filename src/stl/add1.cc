@@ -16,14 +16,14 @@
 // function object that adds the value with which it is initialized
 class AddValue {
 private:
-    int the_value;  // the value to add
+    int the_value_;  // the value to add
 public:
     // constructor initialize the values to add
-    AddValue(int v) : the_value(v) { }
+    AddValue(int v) : the_value_(v) { }
 
     // the ``function call'' for the element adds the value
     void operator()(int& elem) const {
-        elem += the_value;
+        elem += the_value_;
     }
 };
 

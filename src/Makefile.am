@@ -2,7 +2,8 @@ SUBDIRS = 	\
 	lang 	\
 	util	\
 	stl		\
-	cont
+	cont	\
+	iter
 
 pkginclude_HEADERS = 		\
 	include/printtuple.h	\

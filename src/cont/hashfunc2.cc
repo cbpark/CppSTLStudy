@@ -16,25 +16,24 @@
 
 class Customer {
 private:
-    std::string fname;
-    std::string lname;
-    long        no;
-
+    std::string fname_;
+    std::string lname_;
+    long        no_;
 public:
     Customer(const std::string& fn, const std::string& ln, long n)
-        : fname(fn), lname(ln), no(n) { }
+        : fname_(fn), lname_(ln), no_(n) { }
     std::string firstname() const {
-        return fname;
+        return fname_;
     }
     std::string lastname() const {
-        return lname;
+        return lname_;
     }
     long number() const {
-        return no;
+        return no_;
     }
     friend std::ostream& operator<<(std::ostream& strm, const Customer& c) {
-        return strm << "[" << c.fname << "," << c.lname << ","
-                    << c.no << "]\n";
+        return strm << "[" << c.fname_ << "," << c.lname_ << ","
+                    << c.no_ << "]\n";
     }
 };
 

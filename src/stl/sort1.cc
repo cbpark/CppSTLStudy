@@ -15,12 +15,12 @@
 
 class Person {
 private:
-    std::string fn;
-    std::string ln;
+    std::string fn_;
+    std::string ln_;
 public:
     Person() { }
     Person(const std::string& f, const std::string& n)
-        : fn(f), ln(n) {
+        : fn_(f), ln_(n) {
     }
     std::string firstname() const;
     std::string lastname() const;
@@ -28,11 +28,11 @@ public:
 };
 
 inline std::string Person::firstname() const {
-    return fn;
+    return fn_;
 }
 
 inline std::string Person::lastname() const {
-    return ln;
+    return ln_;
 }
 
 // binary function predicate

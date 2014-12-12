@@ -15,14 +15,13 @@
 
 class FileDeleter {
 private:
-    std::string filename;
-
+    std::string filename_;
 public:
-    explicit FileDeleter(const std::string& fn) : filename(fn) { }
+    explicit FileDeleter(const std::string& fn) : filename_(fn) { }
 
     void operator()(std::ofstream* fp) {
         fp->close();                    // close file
-        std::remove(filename.c_str());  // delete file
+        std::remove(filename_.c_str());  // delete file
     }
 };
 

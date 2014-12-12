@@ -16,16 +16,15 @@
 
 class Customer {
 private:
-    std::string fname;
-    std::string lname;
-    long        no;
-
+    std::string fname_;
+    std::string lname_;
+    long        no_;
 public:
     Customer(const std::string& fn, const std::string& ln, long n)
-        : fname(fn), lname(ln), no(n) { }
+        : fname_(fn), lname_(ln), no_(n) { }
     friend std::ostream& operator<<(std::ostream& strm, const Customer& c) {
-        return strm << "[" << c.fname << "," << c.lname << ","
-                    << c.no << "]\n";
+        return strm << "[" << c.fname_ << "," << c.lname_ << ","
+                    << c.no_ << "]\n";
     }
     friend struct CustomerHash;
     friend struct CustomerEqual;
@@ -33,13 +32,13 @@ public:
 
 struct CustomerHash {
     std::size_t operator()(const Customer& c) const {
-        return hash_val(c.fname, c.lname, c.no);
+        return hash_val(c.fname_, c.lname_, c.no_);
     }
 };
 
 struct CustomerEqual {
     bool operator()(const Customer& c1, Customer& c2) const {
-        return c1.no == c2.no;
+        return c1.no_ == c2.no_;
     }
 };
 

@@ -17,23 +17,22 @@
 
 class Item {
 private:
-    std::string name;
-    double price;
-
+    std::string name_;
+    double price_;
 public:
     explicit Item(const std::string& n, double p = 0)
-        : name(n), price(p) { }
+        : name_(n), price_(p) { }
     std::string get_name() const {
-        return name;
+        return name_;
     }
     void set_name(const std::string& n) {
-        name = n;
+        name_ = n;
     }
     double get_price() const {
-        return price;
+        return price_;
     }
     void set_price(double p) {
-        price = p;
+        price_ = p;
     }
 };
 
