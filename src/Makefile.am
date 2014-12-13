@@ -3,7 +3,8 @@ SUBDIRS = 	\
 	util	\
 	stl		\
 	cont	\
-	iter
+	iter	\
+	fo
 
 pkginclude_HEADERS = 		\
 	include/printtuple.h	\
@@ -14,4 +15,5 @@ pkginclude_HEADERS = 		\
 	include/newkey.h		\
 	include/hashval.h		\
 	include/buckets.h		\
-	include/assoiter.h
+	include/assoiter.h		\
+	include/fopow.h
