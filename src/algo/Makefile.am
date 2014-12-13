@@ -27,7 +27,13 @@ bin_PROGRAMS = 		\
 	copy3			\
 	move1			\
 	transform1		\
-	transform2
+	transform2		\
+	swapranges1		\
+	fill1			\
+	generate1		\
+	iota1			\
+	replace1		\
+	replace2
 
 foreach1_SOURCES = foreach1.cc
 
@@ -82,3 +88,15 @@ move1_SOURCES = move1.cc
 transform1_SOURCES = transform1.cc
 
 transform2_SOURCES = transform2.cc
+
+swapranges1_SOURCES = swapranges1.cc
+
+fill1_SOURCES = fill1.cc
+
+generate1_SOURCES = generate1.cc
+
+iota1_SOURCES = iota1.cc
+
+replace1_SOURCES = replace1.cc
+
+replace2_SOURCES = replace2.cc
