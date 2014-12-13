@@ -21,7 +21,13 @@ bin_PROGRAMS = 		\
 	issorted1		\
 	ispartitioned1	\
 	isheap1			\
-	allanynone1
+	allanynone1		\
+	copy1			\
+	copy2			\
+	copy3			\
+	move1			\
+	transform1		\
+	transform2
 
 foreach1_SOURCES = foreach1.cc
 
@@ -64,3 +70,15 @@ ispartitioned1_SOURCES = ispartitioned1.cc
 isheap1_SOURCES = isheap1.cc
 
 allanynone1_SOURCES = allanynone1.cc
+
+copy1_SOURCES = copy1.cc
+
+copy2_SOURCES = copy2.cc
+
+copy3_SOURCES = copy3.cc
+
+move1_SOURCES = move1.cc
+
+transform1_SOURCES = transform1.cc
+
+transform2_SOURCES = transform2.cc
