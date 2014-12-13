@@ -78,7 +78,13 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = foreach1$(EXEEXT)
+bin_PROGRAMS = foreach1$(EXEEXT) foreach2$(EXEEXT) foreach3$(EXEEXT) \
+	count1$(EXEEXT) minmax1$(EXEEXT) find1$(EXEEXT) find2$(EXEEXT) \
+	searchn1$(EXEEXT) search1$(EXEEXT) search2$(EXEEXT) \
+	findend1$(EXEEXT) findof1$(EXEEXT) adjacentfind1$(EXEEXT) \
+	equal1$(EXEEXT) ispermutation1$(EXEEXT) mismatch1$(EXEEXT) \
+	lexicocmp1$(EXEEXT) issorted1$(EXEEXT) ispartitioned1$(EXEEXT) \
+	isheap1$(EXEEXT) allanynone1$(EXEEXT)
 subdir = src/algo
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -95,13 +101,73 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_foreach1_OBJECTS = foreach1.$(OBJEXT)
-foreach1_OBJECTS = $(am_foreach1_OBJECTS)
-foreach1_LDADD = $(LDADD)
+am_adjacentfind1_OBJECTS = adjacentfind1.$(OBJEXT)
+adjacentfind1_OBJECTS = $(am_adjacentfind1_OBJECTS)
+adjacentfind1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_allanynone1_OBJECTS = allanynone1.$(OBJEXT)
+allanynone1_OBJECTS = $(am_allanynone1_OBJECTS)
+allanynone1_LDADD = $(LDADD)
+am_count1_OBJECTS = count1.$(OBJEXT)
+count1_OBJECTS = $(am_count1_OBJECTS)
+count1_LDADD = $(LDADD)
+am_equal1_OBJECTS = equal1.$(OBJEXT)
+equal1_OBJECTS = $(am_equal1_OBJECTS)
+equal1_LDADD = $(LDADD)
+am_find1_OBJECTS = find1.$(OBJEXT)
+find1_OBJECTS = $(am_find1_OBJECTS)
+find1_LDADD = $(LDADD)
+am_find2_OBJECTS = find2.$(OBJEXT)
+find2_OBJECTS = $(am_find2_OBJECTS)
+find2_LDADD = $(LDADD)
+am_findend1_OBJECTS = findend1.$(OBJEXT)
+findend1_OBJECTS = $(am_findend1_OBJECTS)
+findend1_LDADD = $(LDADD)
+am_findof1_OBJECTS = findof1.$(OBJEXT)
+findof1_OBJECTS = $(am_findof1_OBJECTS)
+findof1_LDADD = $(LDADD)
+am_foreach1_OBJECTS = foreach1.$(OBJEXT)
+foreach1_OBJECTS = $(am_foreach1_OBJECTS)
+foreach1_LDADD = $(LDADD)
+am_foreach2_OBJECTS = foreach2.$(OBJEXT)
+foreach2_OBJECTS = $(am_foreach2_OBJECTS)
+foreach2_LDADD = $(LDADD)
+am_foreach3_OBJECTS = foreach3.$(OBJEXT)
+foreach3_OBJECTS = $(am_foreach3_OBJECTS)
+foreach3_LDADD = $(LDADD)
+am_isheap1_OBJECTS = isheap1.$(OBJEXT)
+isheap1_OBJECTS = $(am_isheap1_OBJECTS)
+isheap1_LDADD = $(LDADD)
+am_ispartitioned1_OBJECTS = ispartitioned1.$(OBJEXT)
+ispartitioned1_OBJECTS = $(am_ispartitioned1_OBJECTS)
+ispartitioned1_LDADD = $(LDADD)
+am_ispermutation1_OBJECTS = ispermutation1.$(OBJEXT)
+ispermutation1_OBJECTS = $(am_ispermutation1_OBJECTS)
+ispermutation1_LDADD = $(LDADD)
+am_issorted1_OBJECTS = issorted1.$(OBJEXT)
+issorted1_OBJECTS = $(am_issorted1_OBJECTS)
+issorted1_LDADD = $(LDADD)
+am_lexicocmp1_OBJECTS = lexicocmp1.$(OBJEXT)
+lexicocmp1_OBJECTS = $(am_lexicocmp1_OBJECTS)
+lexicocmp1_LDADD = $(LDADD)
+am_minmax1_OBJECTS = minmax1.$(OBJEXT)
+minmax1_OBJECTS = $(am_minmax1_OBJECTS)
+minmax1_LDADD = $(LDADD)
+am_mismatch1_OBJECTS = mismatch1.$(OBJEXT)
+mismatch1_OBJECTS = $(am_mismatch1_OBJECTS)
+mismatch1_LDADD = $(LDADD)
+am_search1_OBJECTS = search1.$(OBJEXT)
+search1_OBJECTS = $(am_search1_OBJECTS)
+search1_LDADD = $(LDADD)
+am_search2_OBJECTS = search2.$(OBJEXT)
+search2_OBJECTS = $(am_search2_OBJECTS)
+search2_LDADD = $(LDADD)
+am_searchn1_OBJECTS = searchn1.$(OBJEXT)
+searchn1_OBJECTS = $(am_searchn1_OBJECTS)
+searchn1_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -136,8 +202,22 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(foreach1_SOURCES)
-DIST_SOURCES = $(foreach1_SOURCES)
+SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
+	$(count1_SOURCES) $(equal1_SOURCES) $(find1_SOURCES) \
+	$(find2_SOURCES) $(findend1_SOURCES) $(findof1_SOURCES) \
+	$(foreach1_SOURCES) $(foreach2_SOURCES) $(foreach3_SOURCES) \
+	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
+	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
+	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
+	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES)
+DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
+	$(count1_SOURCES) $(equal1_SOURCES) $(find1_SOURCES) \
+	$(find2_SOURCES) $(findend1_SOURCES) $(findof1_SOURCES) \
+	$(foreach1_SOURCES) $(foreach2_SOURCES) $(foreach3_SOURCES) \
+	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
+	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
+	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
+	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -285,6 +365,26 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 foreach1_SOURCES = foreach1.cc
+foreach2_SOURCES = foreach2.cc
+foreach3_SOURCES = foreach3.cc
+count1_SOURCES = count1.cc
+minmax1_SOURCES = minmax1.cc
+find1_SOURCES = find1.cc
+find2_SOURCES = find2.cc
+searchn1_SOURCES = searchn1.cc
+search1_SOURCES = search1.cc
+search2_SOURCES = search2.cc
+findend1_SOURCES = findend1.cc
+findof1_SOURCES = findof1.cc
+adjacentfind1_SOURCES = adjacentfind1.cc
+equal1_SOURCES = equal1.cc
+ispermutation1_SOURCES = ispermutation1.cc
+mismatch1_SOURCES = mismatch1.cc
+lexicocmp1_SOURCES = lexicocmp1.cc
+issorted1_SOURCES = issorted1.cc
+ispartitioned1_SOURCES = ispartitioned1.cc
+isheap1_SOURCES = isheap1.cc
+allanynone1_SOURCES = allanynone1.cc
 all: all-am
 
 .SUFFIXES:
@@ -369,9 +469,89 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
+adjacentfind1$(EXEEXT): $(adjacentfind1_OBJECTS) $(adjacentfind1_DEPENDENCIES) $(EXTRA_adjacentfind1_DEPENDENCIES) 
+	@rm -f adjacentfind1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(adjacentfind1_OBJECTS) $(adjacentfind1_LDADD) $(LIBS)
+
+allanynone1$(EXEEXT): $(allanynone1_OBJECTS) $(allanynone1_DEPENDENCIES) $(EXTRA_allanynone1_DEPENDENCIES) 
+	@rm -f allanynone1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(allanynone1_OBJECTS) $(allanynone1_LDADD) $(LIBS)
+
+count1$(EXEEXT): $(count1_OBJECTS) $(count1_DEPENDENCIES) $(EXTRA_count1_DEPENDENCIES) 
+	@rm -f count1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(count1_OBJECTS) $(count1_LDADD) $(LIBS)
+
+equal1$(EXEEXT): $(equal1_OBJECTS) $(equal1_DEPENDENCIES) $(EXTRA_equal1_DEPENDENCIES) 
+	@rm -f equal1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(equal1_OBJECTS) $(equal1_LDADD) $(LIBS)
+
+find1$(EXEEXT): $(find1_OBJECTS) $(find1_DEPENDENCIES) $(EXTRA_find1_DEPENDENCIES) 
+	@rm -f find1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(find1_OBJECTS) $(find1_LDADD) $(LIBS)
+
+find2$(EXEEXT): $(find2_OBJECTS) $(find2_DEPENDENCIES) $(EXTRA_find2_DEPENDENCIES) 
+	@rm -f find2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(find2_OBJECTS) $(find2_LDADD) $(LIBS)
+
+findend1$(EXEEXT): $(findend1_OBJECTS) $(findend1_DEPENDENCIES) $(EXTRA_findend1_DEPENDENCIES) 
+	@rm -f findend1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(findend1_OBJECTS) $(findend1_LDADD) $(LIBS)
+
+findof1$(EXEEXT): $(findof1_OBJECTS) $(findof1_DEPENDENCIES) $(EXTRA_findof1_DEPENDENCIES) 
+	@rm -f findof1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(findof1_OBJECTS) $(findof1_LDADD) $(LIBS)
+
 foreach1$(EXEEXT): $(foreach1_OBJECTS) $(foreach1_DEPENDENCIES) $(EXTRA_foreach1_DEPENDENCIES) 
 	@rm -f foreach1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(foreach1_OBJECTS) $(foreach1_LDADD) $(LIBS)
+
+foreach2$(EXEEXT): $(foreach2_OBJECTS) $(foreach2_DEPENDENCIES) $(EXTRA_foreach2_DEPENDENCIES) 
+	@rm -f foreach2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foreach2_OBJECTS) $(foreach2_LDADD) $(LIBS)
+
+foreach3$(EXEEXT): $(foreach3_OBJECTS) $(foreach3_DEPENDENCIES) $(EXTRA_foreach3_DEPENDENCIES) 
+	@rm -f foreach3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foreach3_OBJECTS) $(foreach3_LDADD) $(LIBS)
+
+isheap1$(EXEEXT): $(isheap1_OBJECTS) $(isheap1_DEPENDENCIES) $(EXTRA_isheap1_DEPENDENCIES) 
+	@rm -f isheap1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(isheap1_OBJECTS) $(isheap1_LDADD) $(LIBS)
+
+ispartitioned1$(EXEEXT): $(ispartitioned1_OBJECTS) $(ispartitioned1_DEPENDENCIES) $(EXTRA_ispartitioned1_DEPENDENCIES) 
+	@rm -f ispartitioned1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(ispartitioned1_OBJECTS) $(ispartitioned1_LDADD) $(LIBS)
+
+ispermutation1$(EXEEXT): $(ispermutation1_OBJECTS) $(ispermutation1_DEPENDENCIES) $(EXTRA_ispermutation1_DEPENDENCIES) 
+	@rm -f ispermutation1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(ispermutation1_OBJECTS) $(ispermutation1_LDADD) $(LIBS)
+
+issorted1$(EXEEXT): $(issorted1_OBJECTS) $(issorted1_DEPENDENCIES) $(EXTRA_issorted1_DEPENDENCIES) 
+	@rm -f issorted1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(issorted1_OBJECTS) $(issorted1_LDADD) $(LIBS)
+
+lexicocmp1$(EXEEXT): $(lexicocmp1_OBJECTS) $(lexicocmp1_DEPENDENCIES) $(EXTRA_lexicocmp1_DEPENDENCIES) 
+	@rm -f lexicocmp1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(lexicocmp1_OBJECTS) $(lexicocmp1_LDADD) $(LIBS)
+
+minmax1$(EXEEXT): $(minmax1_OBJECTS) $(minmax1_DEPENDENCIES) $(EXTRA_minmax1_DEPENDENCIES) 
+	@rm -f minmax1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(minmax1_OBJECTS) $(minmax1_LDADD) $(LIBS)
+
+mismatch1$(EXEEXT): $(mismatch1_OBJECTS) $(mismatch1_DEPENDENCIES) $(EXTRA_mismatch1_DEPENDENCIES) 
+	@rm -f mismatch1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(mismatch1_OBJECTS) $(mismatch1_LDADD) $(LIBS)
+
+search1$(EXEEXT): $(search1_OBJECTS) $(search1_DEPENDENCIES) $(EXTRA_search1_DEPENDENCIES) 
+	@rm -f search1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(search1_OBJECTS) $(search1_LDADD) $(LIBS)
+
+search2$(EXEEXT): $(search2_OBJECTS) $(search2_DEPENDENCIES) $(EXTRA_search2_DEPENDENCIES) 
+	@rm -f search2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(search2_OBJECTS) $(search2_LDADD) $(LIBS)
+
+searchn1$(EXEEXT): $(searchn1_OBJECTS) $(searchn1_DEPENDENCIES) $(EXTRA_searchn1_DEPENDENCIES) 
+	@rm -f searchn1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(searchn1_OBJECTS) $(searchn1_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -379,7 +559,27 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/adjacentfind1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/allanynone1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/count1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/equal1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/findend1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/findof1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foreach1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foreach2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foreach3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/isheap1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ispartitioned1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ispermutation1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/issorted1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lexicocmp1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/minmax1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mismatch1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/search1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/search2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/searchn1.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
