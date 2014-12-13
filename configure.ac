@@ -38,5 +38,6 @@ AC_CONFIG_FILES([Makefile
                  src/stl/Makefile
                  src/cont/Makefile
                  src/iter/Makefile
-                 src/fo/Makefile])
+                 src/fo/Makefile
+                 src/algo/Makefile])
 AC_OUTPUT

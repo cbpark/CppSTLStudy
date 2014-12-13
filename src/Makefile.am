@@ -4,7 +4,8 @@ SUBDIRS = 	\
 	stl		\
 	cont	\
 	iter	\
-	fo
+	fo		\
+	algo
 
 pkginclude_HEADERS = 		\
 	include/printtuple.h	\
@@ -16,4 +17,5 @@ pkginclude_HEADERS = 		\
 	include/hashval.h		\
 	include/buckets.h		\
 	include/assoiter.h		\
-	include/fopow.h
+	include/fopow.h			\
+	include/algostuff.h
