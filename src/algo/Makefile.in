@@ -90,7 +90,7 @@ bin_PROGRAMS = foreach1$(EXEEXT) foreach2$(EXEEXT) foreach3$(EXEEXT) \
 	fill1$(EXEEXT) generate1$(EXEEXT) iota1$(EXEEXT) \
 	replace1$(EXEEXT) replace2$(EXEEXT) remove1$(EXEEXT) \
 	remove2$(EXEEXT) unique1$(EXEEXT) unique2$(EXEEXT) \
-	unique3$(EXEEXT)
+	unique3$(EXEEXT) reverse1$(EXEEXT)
 subdir = src/algo
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -198,6 +198,9 @@ replace1_LDADD = $(LDADD)
 am_replace2_OBJECTS = replace2.$(OBJEXT)
 replace2_OBJECTS = $(am_replace2_OBJECTS)
 replace2_LDADD = $(LDADD)
+am_reverse1_OBJECTS = reverse1.$(OBJEXT)
+reverse1_OBJECTS = $(am_reverse1_OBJECTS)
+reverse1_LDADD = $(LDADD)
 am_search1_OBJECTS = search1.$(OBJEXT)
 search1_OBJECTS = $(am_search1_OBJECTS)
 search1_LDADD = $(LDADD)
@@ -269,10 +272,11 @@ SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
 	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
 	$(move1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
-	$(replace1_SOURCES) $(replace2_SOURCES) $(search1_SOURCES) \
-	$(search2_SOURCES) $(searchn1_SOURCES) $(swapranges1_SOURCES) \
-	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
-	$(unique2_SOURCES) $(unique3_SOURCES)
+	$(replace1_SOURCES) $(replace2_SOURCES) $(reverse1_SOURCES) \
+	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES) \
+	$(swapranges1_SOURCES) $(transform1_SOURCES) \
+	$(transform2_SOURCES) $(unique1_SOURCES) $(unique2_SOURCES) \
+	$(unique3_SOURCES)
 DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(copy1_SOURCES) $(copy2_SOURCES) $(copy3_SOURCES) \
 	$(count1_SOURCES) $(equal1_SOURCES) $(fill1_SOURCES) \
@@ -283,10 +287,11 @@ DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
 	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
 	$(move1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
-	$(replace1_SOURCES) $(replace2_SOURCES) $(search1_SOURCES) \
-	$(search2_SOURCES) $(searchn1_SOURCES) $(swapranges1_SOURCES) \
-	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
-	$(unique2_SOURCES) $(unique3_SOURCES)
+	$(replace1_SOURCES) $(replace2_SOURCES) $(reverse1_SOURCES) \
+	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES) \
+	$(swapranges1_SOURCES) $(transform1_SOURCES) \
+	$(transform2_SOURCES) $(unique1_SOURCES) $(unique2_SOURCES) \
+	$(unique3_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -471,6 +476,7 @@ remove2_SOURCES = remove2.cc
 unique1_SOURCES = unique1.cc
 unique2_SOURCES = unique2.cc
 unique3_SOURCES = unique3.cc
+reverse1_SOURCES = reverse1.cc
 all: all-am
 
 .SUFFIXES:
@@ -671,6 +677,10 @@ replace2$(EXEEXT): $(replace2_OBJECTS) $(replace2_DEPENDENCIES) $(EXTRA_replace2
 	@rm -f replace2$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(replace2_OBJECTS) $(replace2_LDADD) $(LIBS)
 
+reverse1$(EXEEXT): $(reverse1_OBJECTS) $(reverse1_DEPENDENCIES) $(EXTRA_reverse1_DEPENDENCIES) 
+	@rm -f reverse1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(reverse1_OBJECTS) $(reverse1_LDADD) $(LIBS)
+
 search1$(EXEEXT): $(search1_OBJECTS) $(search1_DEPENDENCIES) $(EXTRA_search1_DEPENDENCIES) 
 	@rm -f search1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(search1_OBJECTS) $(search1_LDADD) $(LIBS)
@@ -742,6 +752,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/replace1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/replace2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reverse1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/search1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/search2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/searchn1.Po@am__quote@

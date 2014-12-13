@@ -38,7 +38,8 @@ bin_PROGRAMS = 		\
 	remove2			\
 	unique1			\
 	unique2			\
-	unique3
+	unique3			\
+	reverse1
 
 foreach1_SOURCES = foreach1.cc
 
@@ -115,3 +116,5 @@ unique1_SOURCES = unique1.cc
 unique2_SOURCES = unique2.cc
 
 unique3_SOURCES = unique3.cc
+
+reverse1_SOURCES = reverse1.cc
