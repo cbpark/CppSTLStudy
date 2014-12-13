@@ -88,7 +88,9 @@ bin_PROGRAMS = foreach1$(EXEEXT) foreach2$(EXEEXT) foreach3$(EXEEXT) \
 	copy2$(EXEEXT) copy3$(EXEEXT) move1$(EXEEXT) \
 	transform1$(EXEEXT) transform2$(EXEEXT) swapranges1$(EXEEXT) \
 	fill1$(EXEEXT) generate1$(EXEEXT) iota1$(EXEEXT) \
-	replace1$(EXEEXT) replace2$(EXEEXT)
+	replace1$(EXEEXT) replace2$(EXEEXT) remove1$(EXEEXT) \
+	remove2$(EXEEXT) unique1$(EXEEXT) unique2$(EXEEXT) \
+	unique3$(EXEEXT)
 subdir = src/algo
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -184,6 +186,12 @@ mismatch1_LDADD = $(LDADD)
 am_move1_OBJECTS = move1.$(OBJEXT)
 move1_OBJECTS = $(am_move1_OBJECTS)
 move1_LDADD = $(LDADD)
+am_remove1_OBJECTS = remove1.$(OBJEXT)
+remove1_OBJECTS = $(am_remove1_OBJECTS)
+remove1_LDADD = $(LDADD)
+am_remove2_OBJECTS = remove2.$(OBJEXT)
+remove2_OBJECTS = $(am_remove2_OBJECTS)
+remove2_LDADD = $(LDADD)
 am_replace1_OBJECTS = replace1.$(OBJEXT)
 replace1_OBJECTS = $(am_replace1_OBJECTS)
 replace1_LDADD = $(LDADD)
@@ -208,6 +216,15 @@ transform1_LDADD = $(LDADD)
 am_transform2_OBJECTS = transform2.$(OBJEXT)
 transform2_OBJECTS = $(am_transform2_OBJECTS)
 transform2_LDADD = $(LDADD)
+am_unique1_OBJECTS = unique1.$(OBJEXT)
+unique1_OBJECTS = $(am_unique1_OBJECTS)
+unique1_LDADD = $(LDADD)
+am_unique2_OBJECTS = unique2.$(OBJEXT)
+unique2_OBJECTS = $(am_unique2_OBJECTS)
+unique2_LDADD = $(LDADD)
+am_unique3_OBJECTS = unique3.$(OBJEXT)
+unique3_OBJECTS = $(am_unique3_OBJECTS)
+unique3_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -251,10 +268,11 @@ SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
 	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
 	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
-	$(move1_SOURCES) $(replace1_SOURCES) $(replace2_SOURCES) \
-	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES) \
-	$(swapranges1_SOURCES) $(transform1_SOURCES) \
-	$(transform2_SOURCES)
+	$(move1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
+	$(replace1_SOURCES) $(replace2_SOURCES) $(search1_SOURCES) \
+	$(search2_SOURCES) $(searchn1_SOURCES) $(swapranges1_SOURCES) \
+	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
+	$(unique2_SOURCES) $(unique3_SOURCES)
 DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(copy1_SOURCES) $(copy2_SOURCES) $(copy3_SOURCES) \
 	$(count1_SOURCES) $(equal1_SOURCES) $(fill1_SOURCES) \
@@ -264,10 +282,11 @@ DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
 	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
 	$(lexicocmp1_SOURCES) $(minmax1_SOURCES) $(mismatch1_SOURCES) \
-	$(move1_SOURCES) $(replace1_SOURCES) $(replace2_SOURCES) \
-	$(search1_SOURCES) $(search2_SOURCES) $(searchn1_SOURCES) \
-	$(swapranges1_SOURCES) $(transform1_SOURCES) \
-	$(transform2_SOURCES)
+	$(move1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
+	$(replace1_SOURCES) $(replace2_SOURCES) $(search1_SOURCES) \
+	$(search2_SOURCES) $(searchn1_SOURCES) $(swapranges1_SOURCES) \
+	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
+	$(unique2_SOURCES) $(unique3_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -447,6 +466,11 @@ generate1_SOURCES = generate1.cc
 iota1_SOURCES = iota1.cc
 replace1_SOURCES = replace1.cc
 replace2_SOURCES = replace2.cc
+remove1_SOURCES = remove1.cc
+remove2_SOURCES = remove2.cc
+unique1_SOURCES = unique1.cc
+unique2_SOURCES = unique2.cc
+unique3_SOURCES = unique3.cc
 all: all-am
 
 .SUFFIXES:
@@ -631,6 +655,14 @@ move1$(EXEEXT): $(move1_OBJECTS) $(move1_DEPENDENCIES) $(EXTRA_move1_DEPENDENCIE
 	@rm -f move1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(move1_OBJECTS) $(move1_LDADD) $(LIBS)
 
+remove1$(EXEEXT): $(remove1_OBJECTS) $(remove1_DEPENDENCIES) $(EXTRA_remove1_DEPENDENCIES) 
+	@rm -f remove1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove1_OBJECTS) $(remove1_LDADD) $(LIBS)
+
+remove2$(EXEEXT): $(remove2_OBJECTS) $(remove2_DEPENDENCIES) $(EXTRA_remove2_DEPENDENCIES) 
+	@rm -f remove2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(remove2_OBJECTS) $(remove2_LDADD) $(LIBS)
+
 replace1$(EXEEXT): $(replace1_OBJECTS) $(replace1_DEPENDENCIES) $(EXTRA_replace1_DEPENDENCIES) 
 	@rm -f replace1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(replace1_OBJECTS) $(replace1_LDADD) $(LIBS)
@@ -663,6 +695,18 @@ transform2$(EXEEXT): $(transform2_OBJECTS) $(transform2_DEPENDENCIES) $(EXTRA_tr
 	@rm -f transform2$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(transform2_OBJECTS) $(transform2_LDADD) $(LIBS)
 
+unique1$(EXEEXT): $(unique1_OBJECTS) $(unique1_DEPENDENCIES) $(EXTRA_unique1_DEPENDENCIES) 
+	@rm -f unique1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unique1_OBJECTS) $(unique1_LDADD) $(LIBS)
+
+unique2$(EXEEXT): $(unique2_OBJECTS) $(unique2_DEPENDENCIES) $(EXTRA_unique2_DEPENDENCIES) 
+	@rm -f unique2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unique2_OBJECTS) $(unique2_LDADD) $(LIBS)
+
+unique3$(EXEEXT): $(unique3_OBJECTS) $(unique3_DEPENDENCIES) $(EXTRA_unique3_DEPENDENCIES) 
+	@rm -f unique3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(unique3_OBJECTS) $(unique3_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -694,6 +738,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/minmax1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mismatch1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/move1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/replace1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/replace2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/search1.Po@am__quote@
@@ -702,6 +748,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/swapranges1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/transform1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/transform2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unique1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unique2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unique3.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

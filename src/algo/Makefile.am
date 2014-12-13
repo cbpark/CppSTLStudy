@@ -33,7 +33,12 @@ bin_PROGRAMS = 		\
 	generate1		\
 	iota1			\
 	replace1		\
-	replace2
+	replace2		\
+	remove1			\
+	remove2			\
+	unique1			\
+	unique2			\
+	unique3
 
 foreach1_SOURCES = foreach1.cc
 
@@ -100,3 +105,13 @@ iota1_SOURCES = iota1.cc
 replace1_SOURCES = replace1.cc
 
 replace2_SOURCES = replace2.cc
+
+remove1_SOURCES = remove1.cc
+
+remove2_SOURCES = remove2.cc
+
+unique1_SOURCES = unique1.cc
+
+unique2_SOURCES = unique2.cc
+
+unique3_SOURCES = unique3.cc
