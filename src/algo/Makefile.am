@@ -39,7 +39,20 @@ bin_PROGRAMS = 		\
 	unique1			\
 	unique2			\
 	unique3			\
-	reverse1
+	reverse1		\
+	rotate1			\
+	rotate2			\
+	permutation1	\
+	shuffle1		\
+	randomshuffle1	\
+	partition1		\
+	partitioncopy1	\
+	sort1			\
+	sort2			\
+	partialsort1	\
+	partialsort2	\
+	nthelement1		\
+	heap1
 
 foreach1_SOURCES = foreach1.cc
 
@@ -118,3 +131,29 @@ unique2_SOURCES = unique2.cc
 unique3_SOURCES = unique3.cc
 
 reverse1_SOURCES = reverse1.cc
+
+rotate1_SOURCES = rotate1.cc
+
+rotate2_SOURCES = rotate2.cc
+
+permutation1_SOURCES = permutation1.cc
+
+shuffle1_SOURCES = shuffle1.cc
+
+randomshuffle1_SOURCES = randomshuffle1.cc
+
+partition1_SOURCES = partition1.cc
+
+partitioncopy1_SOURCES = partitioncopy1.cc
+
+sort1_SOURCES = sort1.cc
+
+sort2_SOURCES = sort2.cc
+
+partialsort1_SOURCES = partialsort1.cc
+
+partialsort2_SOURCES = partialsort2.cc
+
+nthelement1_SOURCES = nthelement1.cc
+
+heap1_SOURCES = heap1.cc
