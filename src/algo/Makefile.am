@@ -52,7 +52,14 @@ bin_PROGRAMS = 		\
 	partialsort1	\
 	partialsort2	\
 	nthelement1		\
-	heap1
+	heap1			\
+	binarysearch1	\
+	includes1		\
+	bounds1			\
+	equalrange1		\
+	merge1			\
+	sorted1			\
+	inplacemerge1
 
 foreach1_SOURCES = foreach1.cc
 
@@ -157,3 +164,17 @@ partialsort2_SOURCES = partialsort2.cc
 nthelement1_SOURCES = nthelement1.cc
 
 heap1_SOURCES = heap1.cc
+
+binarysearch1_SOURCES = binarysearch1.cc
+
+includes1_SOURCES = includes1.cc
+
+bounds1_SOURCES = bounds1.cc
+
+equalrange1_SOURCES = equalrange1.cc
+
+merge1_SOURCES = merge1.cc
+
+sorted1_SOURCES = sorted1.cc
+
+inplacemerge1_SOURCES = inplacemerge1.cc
