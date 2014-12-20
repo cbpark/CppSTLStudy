@@ -97,7 +97,9 @@ bin_PROGRAMS = foreach1$(EXEEXT) foreach2$(EXEEXT) foreach3$(EXEEXT) \
 	partialsort1$(EXEEXT) partialsort2$(EXEEXT) \
 	nthelement1$(EXEEXT) heap1$(EXEEXT) binarysearch1$(EXEEXT) \
 	includes1$(EXEEXT) bounds1$(EXEEXT) equalrange1$(EXEEXT) \
-	merge1$(EXEEXT) sorted1$(EXEEXT) inplacemerge1$(EXEEXT)
+	merge1$(EXEEXT) sorted1$(EXEEXT) inplacemerge1$(EXEEXT) \
+	accumulate1$(EXEEXT) innerproduct1$(EXEEXT) \
+	partialsum1$(EXEEXT) adjacentdiff1$(EXEEXT) relabs1$(EXEEXT)
 subdir = src/algo
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -114,13 +116,19 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_adjacentfind1_OBJECTS = adjacentfind1.$(OBJEXT)
-adjacentfind1_OBJECTS = $(am_adjacentfind1_OBJECTS)
-adjacentfind1_LDADD = $(LDADD)
+am_accumulate1_OBJECTS = accumulate1.$(OBJEXT)
+accumulate1_OBJECTS = $(am_accumulate1_OBJECTS)
+accumulate1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_adjacentdiff1_OBJECTS = adjacentdiff1.$(OBJEXT)
+adjacentdiff1_OBJECTS = $(am_adjacentdiff1_OBJECTS)
+adjacentdiff1_LDADD = $(LDADD)
+am_adjacentfind1_OBJECTS = adjacentfind1.$(OBJEXT)
+adjacentfind1_OBJECTS = $(am_adjacentfind1_OBJECTS)
+adjacentfind1_LDADD = $(LDADD)
 am_allanynone1_OBJECTS = allanynone1.$(OBJEXT)
 allanynone1_OBJECTS = $(am_allanynone1_OBJECTS)
 allanynone1_LDADD = $(LDADD)
@@ -181,6 +189,9 @@ heap1_LDADD = $(LDADD)
 am_includes1_OBJECTS = includes1.$(OBJEXT)
 includes1_OBJECTS = $(am_includes1_OBJECTS)
 includes1_LDADD = $(LDADD)
+am_innerproduct1_OBJECTS = innerproduct1.$(OBJEXT)
+innerproduct1_OBJECTS = $(am_innerproduct1_OBJECTS)
+innerproduct1_LDADD = $(LDADD)
 am_inplacemerge1_OBJECTS = inplacemerge1.$(OBJEXT)
 inplacemerge1_OBJECTS = $(am_inplacemerge1_OBJECTS)
 inplacemerge1_LDADD = $(LDADD)
@@ -223,6 +234,9 @@ partialsort1_LDADD = $(LDADD)
 am_partialsort2_OBJECTS = partialsort2.$(OBJEXT)
 partialsort2_OBJECTS = $(am_partialsort2_OBJECTS)
 partialsort2_LDADD = $(LDADD)
+am_partialsum1_OBJECTS = partialsum1.$(OBJEXT)
+partialsum1_OBJECTS = $(am_partialsum1_OBJECTS)
+partialsum1_LDADD = $(LDADD)
 am_partition1_OBJECTS = partition1.$(OBJEXT)
 partition1_OBJECTS = $(am_partition1_OBJECTS)
 partition1_LDADD = $(LDADD)
@@ -235,6 +249,9 @@ permutation1_LDADD = $(LDADD)
 am_randomshuffle1_OBJECTS = randomshuffle1.$(OBJEXT)
 randomshuffle1_OBJECTS = $(am_randomshuffle1_OBJECTS)
 randomshuffle1_LDADD = $(LDADD)
+am_relabs1_OBJECTS = relabs1.$(OBJEXT)
+relabs1_OBJECTS = $(am_relabs1_OBJECTS)
+relabs1_LDADD = $(LDADD)
 am_remove1_OBJECTS = remove1.$(OBJEXT)
 remove1_OBJECTS = $(am_remove1_OBJECTS)
 remove1_LDADD = $(LDADD)
@@ -329,50 +346,56 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
+SOURCES = $(accumulate1_SOURCES) $(adjacentdiff1_SOURCES) \
+	$(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(binarysearch1_SOURCES) $(bounds1_SOURCES) $(copy1_SOURCES) \
 	$(copy2_SOURCES) $(copy3_SOURCES) $(count1_SOURCES) \
 	$(equal1_SOURCES) $(equalrange1_SOURCES) $(fill1_SOURCES) \
 	$(find1_SOURCES) $(find2_SOURCES) $(findend1_SOURCES) \
 	$(findof1_SOURCES) $(foreach1_SOURCES) $(foreach2_SOURCES) \
 	$(foreach3_SOURCES) $(generate1_SOURCES) $(heap1_SOURCES) \
-	$(includes1_SOURCES) $(inplacemerge1_SOURCES) $(iota1_SOURCES) \
-	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
-	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
-	$(lexicocmp1_SOURCES) $(merge1_SOURCES) $(minmax1_SOURCES) \
-	$(mismatch1_SOURCES) $(move1_SOURCES) $(nthelement1_SOURCES) \
-	$(partialsort1_SOURCES) $(partialsort2_SOURCES) \
+	$(includes1_SOURCES) $(innerproduct1_SOURCES) \
+	$(inplacemerge1_SOURCES) $(iota1_SOURCES) $(isheap1_SOURCES) \
+	$(ispartitioned1_SOURCES) $(ispermutation1_SOURCES) \
+	$(issorted1_SOURCES) $(lexicocmp1_SOURCES) $(merge1_SOURCES) \
+	$(minmax1_SOURCES) $(mismatch1_SOURCES) $(move1_SOURCES) \
+	$(nthelement1_SOURCES) $(partialsort1_SOURCES) \
+	$(partialsort2_SOURCES) $(partialsum1_SOURCES) \
 	$(partition1_SOURCES) $(partitioncopy1_SOURCES) \
 	$(permutation1_SOURCES) $(randomshuffle1_SOURCES) \
-	$(remove1_SOURCES) $(remove2_SOURCES) $(replace1_SOURCES) \
-	$(replace2_SOURCES) $(reverse1_SOURCES) $(rotate1_SOURCES) \
-	$(rotate2_SOURCES) $(search1_SOURCES) $(search2_SOURCES) \
-	$(searchn1_SOURCES) $(shuffle1_SOURCES) $(sort1_SOURCES) \
-	$(sort2_SOURCES) $(sorted1_SOURCES) $(swapranges1_SOURCES) \
-	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
-	$(unique2_SOURCES) $(unique3_SOURCES)
-DIST_SOURCES = $(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
+	$(relabs1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
+	$(replace1_SOURCES) $(replace2_SOURCES) $(reverse1_SOURCES) \
+	$(rotate1_SOURCES) $(rotate2_SOURCES) $(search1_SOURCES) \
+	$(search2_SOURCES) $(searchn1_SOURCES) $(shuffle1_SOURCES) \
+	$(sort1_SOURCES) $(sort2_SOURCES) $(sorted1_SOURCES) \
+	$(swapranges1_SOURCES) $(transform1_SOURCES) \
+	$(transform2_SOURCES) $(unique1_SOURCES) $(unique2_SOURCES) \
+	$(unique3_SOURCES)
+DIST_SOURCES = $(accumulate1_SOURCES) $(adjacentdiff1_SOURCES) \
+	$(adjacentfind1_SOURCES) $(allanynone1_SOURCES) \
 	$(binarysearch1_SOURCES) $(bounds1_SOURCES) $(copy1_SOURCES) \
 	$(copy2_SOURCES) $(copy3_SOURCES) $(count1_SOURCES) \
 	$(equal1_SOURCES) $(equalrange1_SOURCES) $(fill1_SOURCES) \
 	$(find1_SOURCES) $(find2_SOURCES) $(findend1_SOURCES) \
 	$(findof1_SOURCES) $(foreach1_SOURCES) $(foreach2_SOURCES) \
 	$(foreach3_SOURCES) $(generate1_SOURCES) $(heap1_SOURCES) \
-	$(includes1_SOURCES) $(inplacemerge1_SOURCES) $(iota1_SOURCES) \
-	$(isheap1_SOURCES) $(ispartitioned1_SOURCES) \
-	$(ispermutation1_SOURCES) $(issorted1_SOURCES) \
-	$(lexicocmp1_SOURCES) $(merge1_SOURCES) $(minmax1_SOURCES) \
-	$(mismatch1_SOURCES) $(move1_SOURCES) $(nthelement1_SOURCES) \
-	$(partialsort1_SOURCES) $(partialsort2_SOURCES) \
+	$(includes1_SOURCES) $(innerproduct1_SOURCES) \
+	$(inplacemerge1_SOURCES) $(iota1_SOURCES) $(isheap1_SOURCES) \
+	$(ispartitioned1_SOURCES) $(ispermutation1_SOURCES) \
+	$(issorted1_SOURCES) $(lexicocmp1_SOURCES) $(merge1_SOURCES) \
+	$(minmax1_SOURCES) $(mismatch1_SOURCES) $(move1_SOURCES) \
+	$(nthelement1_SOURCES) $(partialsort1_SOURCES) \
+	$(partialsort2_SOURCES) $(partialsum1_SOURCES) \
 	$(partition1_SOURCES) $(partitioncopy1_SOURCES) \
 	$(permutation1_SOURCES) $(randomshuffle1_SOURCES) \
-	$(remove1_SOURCES) $(remove2_SOURCES) $(replace1_SOURCES) \
-	$(replace2_SOURCES) $(reverse1_SOURCES) $(rotate1_SOURCES) \
-	$(rotate2_SOURCES) $(search1_SOURCES) $(search2_SOURCES) \
-	$(searchn1_SOURCES) $(shuffle1_SOURCES) $(sort1_SOURCES) \
-	$(sort2_SOURCES) $(sorted1_SOURCES) $(swapranges1_SOURCES) \
-	$(transform1_SOURCES) $(transform2_SOURCES) $(unique1_SOURCES) \
-	$(unique2_SOURCES) $(unique3_SOURCES)
+	$(relabs1_SOURCES) $(remove1_SOURCES) $(remove2_SOURCES) \
+	$(replace1_SOURCES) $(replace2_SOURCES) $(reverse1_SOURCES) \
+	$(rotate1_SOURCES) $(rotate2_SOURCES) $(search1_SOURCES) \
+	$(search2_SOURCES) $(searchn1_SOURCES) $(shuffle1_SOURCES) \
+	$(sort1_SOURCES) $(sort2_SOURCES) $(sorted1_SOURCES) \
+	$(swapranges1_SOURCES) $(transform1_SOURCES) \
+	$(transform2_SOURCES) $(unique1_SOURCES) $(unique2_SOURCES) \
+	$(unique3_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -578,6 +601,11 @@ equalrange1_SOURCES = equalrange1.cc
 merge1_SOURCES = merge1.cc
 sorted1_SOURCES = sorted1.cc
 inplacemerge1_SOURCES = inplacemerge1.cc
+accumulate1_SOURCES = accumulate1.cc
+innerproduct1_SOURCES = innerproduct1.cc
+partialsum1_SOURCES = partialsum1.cc
+adjacentdiff1_SOURCES = adjacentdiff1.cc
+relabs1_SOURCES = relabs1.cc
 all: all-am
 
 .SUFFIXES:
@@ -661,6 +689,14 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
+
+accumulate1$(EXEEXT): $(accumulate1_OBJECTS) $(accumulate1_DEPENDENCIES) $(EXTRA_accumulate1_DEPENDENCIES) 
+	@rm -f accumulate1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(accumulate1_OBJECTS) $(accumulate1_LDADD) $(LIBS)
+
+adjacentdiff1$(EXEEXT): $(adjacentdiff1_OBJECTS) $(adjacentdiff1_DEPENDENCIES) $(EXTRA_adjacentdiff1_DEPENDENCIES) 
+	@rm -f adjacentdiff1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(adjacentdiff1_OBJECTS) $(adjacentdiff1_LDADD) $(LIBS)
 
 adjacentfind1$(EXEEXT): $(adjacentfind1_OBJECTS) $(adjacentfind1_DEPENDENCIES) $(EXTRA_adjacentfind1_DEPENDENCIES) 
 	@rm -f adjacentfind1$(EXEEXT)
@@ -746,6 +782,10 @@ includes1$(EXEEXT): $(includes1_OBJECTS) $(includes1_DEPENDENCIES) $(EXTRA_inclu
 	@rm -f includes1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(includes1_OBJECTS) $(includes1_LDADD) $(LIBS)
 
+innerproduct1$(EXEEXT): $(innerproduct1_OBJECTS) $(innerproduct1_DEPENDENCIES) $(EXTRA_innerproduct1_DEPENDENCIES) 
+	@rm -f innerproduct1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(innerproduct1_OBJECTS) $(innerproduct1_LDADD) $(LIBS)
+
 inplacemerge1$(EXEEXT): $(inplacemerge1_OBJECTS) $(inplacemerge1_DEPENDENCIES) $(EXTRA_inplacemerge1_DEPENDENCIES) 
 	@rm -f inplacemerge1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(inplacemerge1_OBJECTS) $(inplacemerge1_LDADD) $(LIBS)
@@ -802,6 +842,10 @@ partialsort2$(EXEEXT): $(partialsort2_OBJECTS) $(partialsort2_DEPENDENCIES) $(EX
 	@rm -f partialsort2$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(partialsort2_OBJECTS) $(partialsort2_LDADD) $(LIBS)
 
+partialsum1$(EXEEXT): $(partialsum1_OBJECTS) $(partialsum1_DEPENDENCIES) $(EXTRA_partialsum1_DEPENDENCIES) 
+	@rm -f partialsum1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(partialsum1_OBJECTS) $(partialsum1_LDADD) $(LIBS)
+
 partition1$(EXEEXT): $(partition1_OBJECTS) $(partition1_DEPENDENCIES) $(EXTRA_partition1_DEPENDENCIES) 
 	@rm -f partition1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(partition1_OBJECTS) $(partition1_LDADD) $(LIBS)
@@ -817,6 +861,10 @@ permutation1$(EXEEXT): $(permutation1_OBJECTS) $(permutation1_DEPENDENCIES) $(EX
 randomshuffle1$(EXEEXT): $(randomshuffle1_OBJECTS) $(randomshuffle1_DEPENDENCIES) $(EXTRA_randomshuffle1_DEPENDENCIES) 
 	@rm -f randomshuffle1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(randomshuffle1_OBJECTS) $(randomshuffle1_LDADD) $(LIBS)
+
+relabs1$(EXEEXT): $(relabs1_OBJECTS) $(relabs1_DEPENDENCIES) $(EXTRA_relabs1_DEPENDENCIES) 
+	@rm -f relabs1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(relabs1_OBJECTS) $(relabs1_LDADD) $(LIBS)
 
 remove1$(EXEEXT): $(remove1_OBJECTS) $(remove1_DEPENDENCIES) $(EXTRA_remove1_DEPENDENCIES) 
 	@rm -f remove1$(EXEEXT)
@@ -904,6 +952,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/accumulate1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/adjacentdiff1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/adjacentfind1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/allanynone1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/binarysearch1.Po@am__quote@
@@ -925,6 +975,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generate1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/heap1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/includes1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/innerproduct1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/inplacemerge1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/iota1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/isheap1.Po@am__quote@
@@ -939,10 +990,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nthelement1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/partialsort1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/partialsort2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/partialsum1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/partition1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/partitioncopy1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/permutation1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/randomshuffle1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/relabs1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/remove2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/replace1.Po@am__quote@

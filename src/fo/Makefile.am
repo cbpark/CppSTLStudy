@@ -1,20 +1,20 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 	\
-	sort1		\
-	sequence1	\
-	sequence2	\
-	foreach3	\
-	removeif1	\
-	bind1		\
-	compose3	\
-	bind2		\
-	fopow1		\
-	lambda1		\
-	lambda2		\
-	lambda3		\
-	lambda4		\
-	lambda5
+bin_PROGRAMS =  \
+    sort1       \
+    sequence1   \
+    sequence2   \
+    foreach3    \
+    removeif1   \
+    bind1       \
+    compose3    \
+    bind2       \
+    fopow1      \
+    lambda1     \
+    lambda2     \
+    lambda3     \
+    lambda4     \
+    lambda5
 
 sort1_SOURCES = sort1.cc
 

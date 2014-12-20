@@ -81,7 +81,7 @@ sortset
 sortvec
 itercategory1
 advance1
-distance1
+dist*1
 iterswap1
 *iter2
 *iter3
@@ -113,7 +113,7 @@ mismatch1
 lexicocmp1
 *sorted1
 ispartitioned1
-isheap1
+*heap1
 allanynone1
 copy3
 move1
@@ -134,8 +134,17 @@ rotate2
 partition1
 partitioncopy1
 nthelement1
-heap1
 binarysearch1
 includes1
 bounds1
 *merge1
+accumulate1
+innerproduct1
+partialsum1
+adjacent*1
+relabs1
+random1
+random2
+complex1
+complex2
+string1

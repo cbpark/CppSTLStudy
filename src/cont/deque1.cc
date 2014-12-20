@@ -32,7 +32,7 @@ int main() {
     coll.pop_back();
 
     // insert ``another'' into every element but the first
-    for (unsigned i = 1; i < coll.size(); ++i) {
+    for (unsigned int i = 1; i < coll.size(); ++i) {
         coll[i] = "another " + coll[i];
     }
 

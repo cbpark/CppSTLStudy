@@ -34,7 +34,7 @@ int main() {
 
     // print all elements
     // - NOTE: uses operator[] instead of operator*
-    for (unsigned i = 0; i < coll.size(); ++i) {
+    for (unsigned int i = 0; i < coll.size(); ++i) {
         std::cout << coll.begin()[i] << ' ';
     }
     std::cout << '\n';

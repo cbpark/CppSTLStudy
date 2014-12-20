@@ -1,34 +1,34 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 			\
-	array1				\
-	vector1				\
-	deque1				\
-	list1				\
-	forwardlistfind1	\
-	forwardlistfind2	\
-	forwardlistsplice1	\
-	forwardlist1		\
-	setrange1			\
-	set1				\
-	multiset1			\
-	setcmp1				\
-	map1				\
-	map2				\
-	multimap1			\
-	mapfind1			\
-	mapcmp1				\
-	unordset1			\
-	unordmultiset1		\
-	hashfunc1			\
-	hashfunc2			\
-	unordinspect1		\
-	unordmultimap1		\
-	cstylearray1		\
-	cstylearray1old		\
-	refsem1				\
-	sortset				\
-	sortvec
+bin_PROGRAMS =          \
+    array1              \
+    vector1             \
+    deque1              \
+    list1               \
+    forwardlistfind1    \
+    forwardlistfind2    \
+    forwardlistsplice1  \
+    forwardlist1        \
+    setrange1           \
+    set1                \
+    multiset1           \
+    setcmp1             \
+    map1                \
+    map2                \
+    multimap1           \
+    mapfind1            \
+    mapcmp1             \
+    unordset1           \
+    unordmultiset1      \
+    hashfunc1           \
+    hashfunc2           \
+    unordinspect1       \
+    unordmultimap1      \
+    cstylearray1        \
+    cstylearray1old     \
+    refsem1             \
+    sortset             \
+    sortvec
 
 array1_SOURCES = array1.cc
 

@@ -1,21 +1,21 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 		\
-	itercategory1	\
-	advance1		\
-	distance1		\
-	iterswap1		\
-	reviter1		\
-	reviter2		\
-	reviter3		\
-	reviter4		\
-	backinserter1	\
-	frontinserter1	\
-	inserter1		\
-	ostreamiter1	\
-	istreamiter1	\
-	advance2		\
-	assoiter1
+bin_PROGRAMS =      \
+    itercategory1   \
+    advance1        \
+    distance1       \
+    iterswap1       \
+    reviter1        \
+    reviter2        \
+    reviter3        \
+    reviter4        \
+    backinserter1   \
+    frontinserter1  \
+    inserter1       \
+    ostreamiter1    \
+    istreamiter1    \
+    advance2        \
+    assoiter1
 
 itercategory1_SOURCES = itercategory1.cc
 

@@ -1,41 +1,41 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 			\
-	vector1				\
-	deque1				\
-	array1				\
-	list1				\
-	list2				\
-	forwardlist1		\
-	multiset1			\
-	multimap1			\
-	unorderedmultiset1	\
-	unorderedmultimap1	\
-	associativearray1	\
-	list1old			\
-	set1				\
-	unorderedmultiset2	\
-	algo1				\
-	algo1old			\
-	find1				\
-	copy1				\
-	copy2				\
-	ioiter1				\
-	reviter1			\
-	remove1				\
-	remove2				\
-	remove3				\
-	remove4				\
-	foreach1			\
-	transform1			\
-	prime1				\
-	sort1				\
-	lambda1				\
-	sort2				\
-	foreach2			\
-	add1				\
-	fo1					\
-	bind1
+bin_PROGRAMS =          \
+    vector1             \
+    deque1              \
+    array1              \
+    list1               \
+    list2               \
+    forwardlist1        \
+    multiset1           \
+    multimap1           \
+    unorderedmultiset1  \
+    unorderedmultimap1  \
+    associativearray1   \
+    list1old            \
+    set1                \
+    unorderedmultiset2  \
+    algo1               \
+    algo1old            \
+    find1               \
+    copy1               \
+    copy2               \
+    ioiter1             \
+    reviter1            \
+    remove1             \
+    remove2             \
+    remove3             \
+    remove4             \
+    foreach1            \
+    transform1          \
+    prime1              \
+    sort1               \
+    lambda1             \
+    sort2               \
+    foreach2            \
+    add1                \
+    fo1                 \
+    bind1
 
 vector1_SOURCES = vector1.cc
 

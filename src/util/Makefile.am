@@ -1,22 +1,22 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 	\
-	pair1 		\
-	tuple1 		\
-	tuple2 		\
-    sharedptr1 	\
-	sharedptr2	\
-	sharedptr3	\
-	weakptr1	\
-	weakptr2	\
-	uniqueptr1  \
-	limits1		\
-	minmax1		\
-	ratio1 		\
-	clock1		\
-	chrono1		\
-	chrono2		\
-	timepoint1
+bin_PROGRAMS =  \
+    pair1       \
+    tuple1      \
+    tuple2      \
+    sharedptr1  \
+    sharedptr2  \
+    sharedptr3  \
+    weakptr1    \
+    weakptr2    \
+    uniqueptr1  \
+    limits1     \
+    minmax1     \
+    ratio1      \
+    clock1      \
+    chrono1     \
+    chrono2     \
+    timepoint1
 
 pair1_SOURCES = pair1.cc
 

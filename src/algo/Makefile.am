@@ -1,65 +1,70 @@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 
-bin_PROGRAMS = 		\
-	foreach1		\
-	foreach2		\
-	foreach3		\
-	count1			\
-	minmax1			\
-	find1			\
-	find2			\
-	searchn1		\
-	search1			\
-	search2			\
-	findend1		\
-	findof1			\
-	adjacentfind1	\
-	equal1			\
-	ispermutation1	\
-	mismatch1		\
-	lexicocmp1		\
-	issorted1		\
-	ispartitioned1	\
-	isheap1			\
-	allanynone1		\
-	copy1			\
-	copy2			\
-	copy3			\
-	move1			\
-	transform1		\
-	transform2		\
-	swapranges1		\
-	fill1			\
-	generate1		\
-	iota1			\
-	replace1		\
-	replace2		\
-	remove1			\
-	remove2			\
-	unique1			\
-	unique2			\
-	unique3			\
-	reverse1		\
-	rotate1			\
-	rotate2			\
-	permutation1	\
-	shuffle1		\
-	randomshuffle1	\
-	partition1		\
-	partitioncopy1	\
-	sort1			\
-	sort2			\
-	partialsort1	\
-	partialsort2	\
-	nthelement1		\
-	heap1			\
-	binarysearch1	\
-	includes1		\
-	bounds1			\
-	equalrange1		\
-	merge1			\
-	sorted1			\
-	inplacemerge1
+bin_PROGRAMS =      \
+    foreach1        \
+    foreach2        \
+    foreach3        \
+    count1          \
+    minmax1         \
+    find1           \
+    find2           \
+    searchn1        \
+    search1         \
+    search2         \
+    findend1        \
+    findof1         \
+    adjacentfind1   \
+    equal1          \
+    ispermutation1  \
+    mismatch1       \
+    lexicocmp1      \
+    issorted1       \
+    ispartitioned1  \
+    isheap1         \
+    allanynone1     \
+    copy1           \
+    copy2           \
+    copy3           \
+    move1           \
+    transform1      \
+    transform2      \
+    swapranges1     \
+    fill1           \
+    generate1       \
+    iota1           \
+    replace1        \
+    replace2        \
+    remove1         \
+    remove2         \
+    unique1         \
+    unique2         \
+    unique3         \
+    reverse1        \
+    rotate1         \
+    rotate2         \
+    permutation1    \
+    shuffle1        \
+    randomshuffle1  \
+    partition1      \
+    partitioncopy1  \
+    sort1           \
+    sort2           \
+    partialsort1    \
+    partialsort2    \
+    nthelement1     \
+    heap1           \
+    binarysearch1   \
+    includes1       \
+    bounds1         \
+    equalrange1     \
+    merge1          \
+    sorted1         \
+    inplacemerge1   \
+    accumulate1     \
+    innerproduct1   \
+    partialsum1     \
+    adjacentdiff1   \
+    relabs1
 
 foreach1_SOURCES = foreach1.cc
 
@@ -178,3 +183,13 @@ merge1_SOURCES = merge1.cc
 sorted1_SOURCES = sorted1.cc
 
 inplacemerge1_SOURCES = inplacemerge1.cc
+
+accumulate1_SOURCES = accumulate1.cc
+
+innerproduct1_SOURCES = innerproduct1.cc
+
+partialsum1_SOURCES = partialsum1.cc
+
+adjacentdiff1_SOURCES = adjacentdiff1.cc
+
+relabs1_SOURCES = relabs1.cc
