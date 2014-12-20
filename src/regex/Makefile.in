@@ -78,7 +78,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = regex1$(EXEEXT)
+bin_PROGRAMS = regex1$(EXEEXT) regex2$(EXEEXT) regex3$(EXEEXT) \
+	regexiter1$(EXEEXT) regextokeniter1$(EXEEXT) \
+	regexreplace1$(EXEEXT) regex4$(EXEEXT) regex5$(EXEEXT)
 subdir = src/regex
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -102,6 +104,27 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_regex2_OBJECTS = regex2.$(OBJEXT)
+regex2_OBJECTS = $(am_regex2_OBJECTS)
+regex2_LDADD = $(LDADD)
+am_regex3_OBJECTS = regex3.$(OBJEXT)
+regex3_OBJECTS = $(am_regex3_OBJECTS)
+regex3_LDADD = $(LDADD)
+am_regex4_OBJECTS = regex4.$(OBJEXT)
+regex4_OBJECTS = $(am_regex4_OBJECTS)
+regex4_LDADD = $(LDADD)
+am_regex5_OBJECTS = regex5.$(OBJEXT)
+regex5_OBJECTS = $(am_regex5_OBJECTS)
+regex5_LDADD = $(LDADD)
+am_regexiter1_OBJECTS = regexiter1.$(OBJEXT)
+regexiter1_OBJECTS = $(am_regexiter1_OBJECTS)
+regexiter1_LDADD = $(LDADD)
+am_regexreplace1_OBJECTS = regexreplace1.$(OBJEXT)
+regexreplace1_OBJECTS = $(am_regexreplace1_OBJECTS)
+regexreplace1_LDADD = $(LDADD)
+am_regextokeniter1_OBJECTS = regextokeniter1.$(OBJEXT)
+regextokeniter1_OBJECTS = $(am_regextokeniter1_OBJECTS)
+regextokeniter1_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -136,8 +159,12 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(regex1_SOURCES)
-DIST_SOURCES = $(regex1_SOURCES)
+SOURCES = $(regex1_SOURCES) $(regex2_SOURCES) $(regex3_SOURCES) \
+	$(regex4_SOURCES) $(regex5_SOURCES) $(regexiter1_SOURCES) \
+	$(regexreplace1_SOURCES) $(regextokeniter1_SOURCES)
+DIST_SOURCES = $(regex1_SOURCES) $(regex2_SOURCES) $(regex3_SOURCES) \
+	$(regex4_SOURCES) $(regex5_SOURCES) $(regexiter1_SOURCES) \
+	$(regexreplace1_SOURCES) $(regextokeniter1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -285,6 +312,13 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 regex1_SOURCES = regex1.cc
+regex2_SOURCES = regex2.cc
+regex3_SOURCES = regex3.cc
+regexiter1_SOURCES = regexiter1.cc
+regextokeniter1_SOURCES = regextokeniter1.cc
+regexreplace1_SOURCES = regexreplace1.cc
+regex4_SOURCES = regex4.cc
+regex5_SOURCES = regex5.cc
 all: all-am
 
 .SUFFIXES:
@@ -373,6 +407,34 @@ regex1$(EXEEXT): $(regex1_OBJECTS) $(regex1_DEPENDENCIES) $(EXTRA_regex1_DEPENDE
 	@rm -f regex1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(regex1_OBJECTS) $(regex1_LDADD) $(LIBS)
 
+regex2$(EXEEXT): $(regex2_OBJECTS) $(regex2_DEPENDENCIES) $(EXTRA_regex2_DEPENDENCIES) 
+	@rm -f regex2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regex2_OBJECTS) $(regex2_LDADD) $(LIBS)
+
+regex3$(EXEEXT): $(regex3_OBJECTS) $(regex3_DEPENDENCIES) $(EXTRA_regex3_DEPENDENCIES) 
+	@rm -f regex3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regex3_OBJECTS) $(regex3_LDADD) $(LIBS)
+
+regex4$(EXEEXT): $(regex4_OBJECTS) $(regex4_DEPENDENCIES) $(EXTRA_regex4_DEPENDENCIES) 
+	@rm -f regex4$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regex4_OBJECTS) $(regex4_LDADD) $(LIBS)
+
+regex5$(EXEEXT): $(regex5_OBJECTS) $(regex5_DEPENDENCIES) $(EXTRA_regex5_DEPENDENCIES) 
+	@rm -f regex5$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regex5_OBJECTS) $(regex5_LDADD) $(LIBS)
+
+regexiter1$(EXEEXT): $(regexiter1_OBJECTS) $(regexiter1_DEPENDENCIES) $(EXTRA_regexiter1_DEPENDENCIES) 
+	@rm -f regexiter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regexiter1_OBJECTS) $(regexiter1_LDADD) $(LIBS)
+
+regexreplace1$(EXEEXT): $(regexreplace1_OBJECTS) $(regexreplace1_DEPENDENCIES) $(EXTRA_regexreplace1_DEPENDENCIES) 
+	@rm -f regexreplace1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regexreplace1_OBJECTS) $(regexreplace1_LDADD) $(LIBS)
+
+regextokeniter1$(EXEEXT): $(regextokeniter1_OBJECTS) $(regextokeniter1_DEPENDENCIES) $(EXTRA_regextokeniter1_DEPENDENCIES) 
+	@rm -f regextokeniter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(regextokeniter1_OBJECTS) $(regextokeniter1_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -380,6 +442,13 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regex1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regex2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regex3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regex4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regex5.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regexiter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regexreplace1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/regextokeniter1.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

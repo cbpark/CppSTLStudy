@@ -30,7 +30,7 @@ int main() {
 
     // call minmax() for initializer list with special comparison function
     // std::pair<int*, int*> extremes = std::minmax({px, py, pz}, int_ptr_less);
-    auto extremes = std::minmax({px, py, pz}, [](int *a, int *b) {
+    auto extremes = std::minmax({px, py, pz}, [] (int *a, int *b) {
             return *a < *b;
         });
 
