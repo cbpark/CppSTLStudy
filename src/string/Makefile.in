@@ -78,7 +78,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = string1$(EXEEXT)
+bin_PROGRAMS = string1$(EXEEXT) string2$(EXEEXT) \
+	stringnumconv1$(EXEEXT) stringiter1$(EXEEXT) \
+	stringiter2$(EXEEXT) string3$(EXEEXT) icstring1$(EXEEXT)
 subdir = src/string
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/config/depcomp
@@ -95,13 +97,31 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_string1_OBJECTS = string1.$(OBJEXT)
-string1_OBJECTS = $(am_string1_OBJECTS)
-string1_LDADD = $(LDADD)
+am_icstring1_OBJECTS = icstring1.$(OBJEXT)
+icstring1_OBJECTS = $(am_icstring1_OBJECTS)
+icstring1_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+am_string1_OBJECTS = string1.$(OBJEXT)
+string1_OBJECTS = $(am_string1_OBJECTS)
+string1_LDADD = $(LDADD)
+am_string2_OBJECTS = string2.$(OBJEXT)
+string2_OBJECTS = $(am_string2_OBJECTS)
+string2_LDADD = $(LDADD)
+am_string3_OBJECTS = string3.$(OBJEXT)
+string3_OBJECTS = $(am_string3_OBJECTS)
+string3_LDADD = $(LDADD)
+am_stringiter1_OBJECTS = stringiter1.$(OBJEXT)
+stringiter1_OBJECTS = $(am_stringiter1_OBJECTS)
+stringiter1_LDADD = $(LDADD)
+am_stringiter2_OBJECTS = stringiter2.$(OBJEXT)
+stringiter2_OBJECTS = $(am_stringiter2_OBJECTS)
+stringiter2_LDADD = $(LDADD)
+am_stringnumconv1_OBJECTS = stringnumconv1.$(OBJEXT)
+stringnumconv1_OBJECTS = $(am_stringnumconv1_OBJECTS)
+stringnumconv1_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -136,8 +156,12 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(string1_SOURCES)
-DIST_SOURCES = $(string1_SOURCES)
+SOURCES = $(icstring1_SOURCES) $(string1_SOURCES) $(string2_SOURCES) \
+	$(string3_SOURCES) $(stringiter1_SOURCES) \
+	$(stringiter2_SOURCES) $(stringnumconv1_SOURCES)
+DIST_SOURCES = $(icstring1_SOURCES) $(string1_SOURCES) \
+	$(string2_SOURCES) $(string3_SOURCES) $(stringiter1_SOURCES) \
+	$(stringiter2_SOURCES) $(stringnumconv1_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -285,6 +309,12 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -Wall -Wextra -I$(top_srcdir)/src/include
 string1_SOURCES = string1.cc
+string2_SOURCES = string2.cc
+stringnumconv1_SOURCES = stringnumconv1.cc
+stringiter1_SOURCES = stringiter1.cc
+stringiter2_SOURCES = stringiter2.cc
+string3_SOURCES = string3.cc
+icstring1_SOURCES = icstring1.cc
 all: all-am
 
 .SUFFIXES:
@@ -369,9 +399,33 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
+icstring1$(EXEEXT): $(icstring1_OBJECTS) $(icstring1_DEPENDENCIES) $(EXTRA_icstring1_DEPENDENCIES) 
+	@rm -f icstring1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(icstring1_OBJECTS) $(icstring1_LDADD) $(LIBS)
+
 string1$(EXEEXT): $(string1_OBJECTS) $(string1_DEPENDENCIES) $(EXTRA_string1_DEPENDENCIES) 
 	@rm -f string1$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(string1_OBJECTS) $(string1_LDADD) $(LIBS)
+
+string2$(EXEEXT): $(string2_OBJECTS) $(string2_DEPENDENCIES) $(EXTRA_string2_DEPENDENCIES) 
+	@rm -f string2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(string2_OBJECTS) $(string2_LDADD) $(LIBS)
+
+string3$(EXEEXT): $(string3_OBJECTS) $(string3_DEPENDENCIES) $(EXTRA_string3_DEPENDENCIES) 
+	@rm -f string3$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(string3_OBJECTS) $(string3_LDADD) $(LIBS)
+
+stringiter1$(EXEEXT): $(stringiter1_OBJECTS) $(stringiter1_DEPENDENCIES) $(EXTRA_stringiter1_DEPENDENCIES) 
+	@rm -f stringiter1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(stringiter1_OBJECTS) $(stringiter1_LDADD) $(LIBS)
+
+stringiter2$(EXEEXT): $(stringiter2_OBJECTS) $(stringiter2_DEPENDENCIES) $(EXTRA_stringiter2_DEPENDENCIES) 
+	@rm -f stringiter2$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(stringiter2_OBJECTS) $(stringiter2_LDADD) $(LIBS)
+
+stringnumconv1$(EXEEXT): $(stringnumconv1_OBJECTS) $(stringnumconv1_DEPENDENCIES) $(EXTRA_stringnumconv1_DEPENDENCIES) 
+	@rm -f stringnumconv1$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(stringnumconv1_OBJECTS) $(stringnumconv1_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -379,7 +433,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icstring1.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/string1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/string2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/string3.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stringiter1.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stringiter2.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stringnumconv1.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

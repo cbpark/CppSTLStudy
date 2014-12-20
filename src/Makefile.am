@@ -7,6 +7,7 @@ SUBDIRS =   \
     fo      \
     algo    \
     string  \
+    regex   \
     num
 
 pkginclude_HEADERS =        \
@@ -20,4 +21,5 @@ pkginclude_HEADERS =        \
     include/buckets.h       \
     include/assoiter.h      \
     include/fopow.h         \
-    include/algostuff.h
+    include/algostuff.h     \
+    include/icstring.h

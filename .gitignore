@@ -62,7 +62,6 @@ foreach2
 add1
 fo1
 bind1
-forwardlistfind2
 forwardlistsplice1
 *range1
 setcmp1
@@ -100,13 +99,10 @@ lambda3
 lambda4
 lambda5
 count1
-find2
-searchn1
-search1
+search*1
 search2
-findend1
-findof1
-*find1
+*find*1
+*find*2
 equal1
 *permutation1
 mismatch1
@@ -131,8 +127,7 @@ reverse1
 rotate1
 rotate2
 *shuffle1
-partition1
-partitioncopy1
+partition*1
 nthelement1
 binarysearch1
 includes1
@@ -147,4 +142,7 @@ random1
 random2
 complex1
 complex2
-string1
+*string*1
+string*2
+string3
+regex1
