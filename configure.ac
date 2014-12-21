@@ -42,5 +42,6 @@ AC_CONFIG_FILES([Makefile
                  src/algo/Makefile
                  src/string/Makefile
                  src/regex/Makefile
+                 src/io/Makefile
                  src/num/Makefile])
 AC_OUTPUT

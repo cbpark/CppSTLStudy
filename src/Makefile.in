@@ -323,15 +323,16 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = \
-    lang    \
-    util    \
-    stl     \
-    cont    \
-    iter    \
-    fo      \
-    algo    \
-    string  \
-    regex   \
+    lang   \
+    util   \
+    stl    \
+    cont   \
+    iter   \
+    fo     \
+    algo   \
+    string \
+    regex  \
+    io     \
     num
 
 pkginclude_HEADERS = \
@@ -347,7 +348,11 @@ pkginclude_HEADERS = \
     include/fopow.h          \
     include/algostuff.h      \
     include/icstring.h       \
-    include/regexexception.h
+    include/regexexception.h \
+    include/sum1a.h          \
+    include/sum2a.h          \
+    include/ignore1.h        \
+    include/ignore2.h
 
 all: all-recursive
 

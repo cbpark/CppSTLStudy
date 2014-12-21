@@ -1,0 +1,34 @@
+/* The following code example is taken from the book
+ * "The C++ Standard Library - A Tutorial and Reference, 2nd Edition"
+ * by Nicolai M. Josuttis, Addison-Wesley, 2012
+ *
+ * (C) Copyright Nicolai M. Josuttis 2012.
+ * Permission to copy, use, modify, sell and distribute this software
+ * is granted provided this copyright notice appears in all copies.
+ * This software is provided "as is" without express or implied
+ * warranty, and with no claim as to its suitability for any purpose.
+ */
+#include <fstream>
+#include <iostream>
+
+int main() {
+    // open file "example.dat" for reading and writing
+    std::filebuf buffer;
+    std::ostream output(&buffer);
+    std::istream input(&buffer);
+    buffer.open("example.dat", std::ios::in | std::ios::out | std::ios::trunc);
+
+    for (int i = 1; i <= 4; i++) {
+        // write one line
+        output << i << ". line\n";
+
+        // print all file contents
+        input.seekg(0);  // seek to the beginning
+        char c;
+        while (input.get(c)) {
+            std::cout.put(c);
+        }
+        std::cout << '\n';
+        input.clear();  // clear  eofbit and  failbit
+    }
+}

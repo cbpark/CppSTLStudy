@@ -32,7 +32,7 @@ ratio1
 clock1
 chrono1
 chrono2
-timepoint1
+time*1
 vector1
 deque1
 array1
@@ -117,7 +117,7 @@ transform2
 swapranges1
 fill1
 generate1
-iota1
+io*1
 replace1
 replace2
 unique1
@@ -150,3 +150,10 @@ regex2
 regex3
 regex4
 regex5
+summain
+charcat1
+*stream*1
+*stream*2
+cat1
+cat2
+charcat2
